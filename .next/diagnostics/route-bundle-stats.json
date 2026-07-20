@@ -1,0 +1,112 @@
+[
+  {
+    "route": "/",
+    "firstLoadUncompressedJsBytes": 539280,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\3-9v5llyj1vf9.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  },
+  {
+    "route": "/accessories",
+    "firstLoadUncompressedJsBytes": 539280,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\3-9v5llyj1vf9.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  },
+  {
+    "route": "/laptops",
+    "firstLoadUncompressedJsBytes": 539280,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\3-9v5llyj1vf9.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  },
+  {
+    "route": "/smartphones",
+    "firstLoadUncompressedJsBytes": 539280,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\3-9v5llyj1vf9.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  },
+  {
+    "route": "/tablets",
+    "firstLoadUncompressedJsBytes": 539280,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\3-9v5llyj1vf9.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  },
+  {
+    "route": "/vehicle-importation",
+    "firstLoadUncompressedJsBytes": 539280,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\3-9v5llyj1vf9.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  },
+  {
+    "route": "/_not-found",
+    "firstLoadUncompressedJsBytes": 524806,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  },
+  {
+    "route": "/cellphone-repair",
+    "firstLoadUncompressedJsBytes": 524806,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\1n056fpt74fbd.js",
+      ".next\\static\\chunks\\14mrh2-p_w84d.js",
+      ".next\\static\\chunks\\1guoti84v2fh3.js",
+      ".next\\static\\chunks\\15orcrkp-_9ct.js",
+      ".next\\static\\chunks\\0iec5q4ack_04.js",
+      ".next\\static\\chunks\\1mfjqidm5qp0a.js",
+      ".next\\static\\chunks\\turbopack-29doaebhzwdyv.js"
+    ]
+  }
+]
