@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Drop shadow -->
+  <rect x="54" y="54" width="92" height="112" rx="20" fill="black" />
+
+  <!-- Pouch body - navy blue -->
+  <rect x="44" y="44" width="92" height="112" rx="20" fill="#1B2A4A" stroke="black" stroke-width="3.5" />
+
+  <!-- Pouch top flap / opening area -->
+  <rect x="44" y="44" width="92" height="25" rx="20" fill="#243660" stroke="black" stroke-width="3.5" />
+  <!-- Cover bottom corners of the top section -->
+  <rect x="41" y="62" width="98" height="10" fill="#1B2A4A" stroke="none" />
+  <!-- Redraw outline for the opening -->
+  <line x1="43" y1="62" x2="137" y2="62" stroke="black" stroke-width="3.5" />
+
+  <!-- Tablet visible inside -->
+  <rect x="56" y="48" width="68" height="90" rx="5" fill="#333333" stroke="black" stroke-width="3" />
+  <!-- Tablet screen -->
+  <rect x="60" y="52" width="60" height="76" rx="3" fill="#87CEEB" stroke="black" stroke-width="2" />
+  <!-- Tablet screen content - grid of app icons -->
+  <rect x="64" y="56" width="12" height="12" rx="2" fill="#FF6B6B" stroke="black" stroke-width="1.5" />
+  <rect x="80" y="56" width="12" height="12" rx="2" fill="#4ECDC4" stroke="black" stroke-width="1.5" />
+  <rect x="96" y="56" width="12" height="12" rx="2" fill="#FFE66D" stroke="black" stroke-width="1.5" />
+  <rect x="64" y="72" width="12" height="12" rx="2" fill="#A8E6CF" stroke="black" stroke-width="1.5" />
+  <rect x="80" y="72" width="12" height="12" rx="2" fill="#FF8B94" stroke="black" stroke-width="1.5" />
+  <rect x="96" y="72" width="12" height="12" rx="2" fill="#B8E8FF" stroke="black" stroke-width="1.5" />
+  <!-- Tablet home button -->
+  <circle cx="90" cy="118" r="3" fill="none" stroke="#555" stroke-width="1.5" />
+
+  <!-- Zipper track across the opening -->
+  <line x1="44" y1="74" x2="136" y2="74" stroke="black" stroke-width="3.5" />
+
+  <!-- Zipper teeth row -->
+  <rect x="50" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="57" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="64" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="71" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="78" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="85" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="92" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="99" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="106" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+  <rect x="113" y="72" width="4" height="5" rx="1" fill="#C0C0C0" stroke="black" stroke-width="1.5" />
+
+  <!-- Zipper pull -->
+  <rect x="118" y="74" width="12" height="18" rx="3" fill="#FF5722" stroke="black" stroke-width="3" />
+  <circle cx="124" cy="86" r="3.5" fill="#FF5722" stroke="black" stroke-width="2" />
+
+  <!-- Soft fabric stitching around the edge -->
+  <rect x="50" y="50" width="80" height="100" rx="16" fill="none" stroke="#3D5278" stroke-width="1.5" stroke-dasharray="5,4" />
+
+  <!-- Pouch puffy/soft effect - rounded bottom shading -->
+  <ellipse cx="90" cy="150" rx="35" ry="4" fill="#142240" stroke="none" />
+
+  <!-- Front pocket patch -->
+  <rect x="62" y="96" width="56" height="8" rx="4" fill="#2A3F6A" stroke="black" stroke-width="2.5" />
+</svg>

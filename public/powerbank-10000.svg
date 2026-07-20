@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Drop shadow -->
+  <rect x="43" y="83" width="124" height="54" rx="6" fill="#111" stroke="#000" stroke-width="3"/>
+
+  <!-- Main body -->
+  <rect x="40" y="80" width="124" height="54" rx="6" fill="#4a4a4a" stroke="#000" stroke-width="3"/>
+
+  <!-- Body detail line -->
+  <line x1="40" y1="100" x2="164" y2="100" stroke="#000" stroke-width="2"/>
+
+  <!-- USB-A Port 1 -->
+  <rect x="150" y="95" width="12" height="14" rx="1" fill="#333" stroke="#000" stroke-width="2"/>
+  <rect x="153" y="98" width="6" height="8" fill="#666" stroke="#000" stroke-width="1"/>
+
+  <!-- USB-A Port 2 -->
+  <rect x="150" y="113" width="12" height="14" rx="1" fill="#333" stroke="#000" stroke-width="2"/>
+  <rect x="153" y="116" width="6" height="8" fill="#666" stroke="#000" stroke-width="1"/>
+
+  <!-- Micro USB port on side -->
+  <rect x="38" y="108" width="6" height="8" rx="1" fill="#333" stroke="#000" stroke-width="2"/>
+
+  <!-- LED indicators -->
+  <circle cx="60" cy="90" r="3" fill="#00cc44" stroke="#000" stroke-width="1.5"/>
+  <circle cx="72" cy="90" r="3" fill="#00cc44" stroke="#000" stroke-width="1.5"/>
+  <circle cx="84" cy="90" r="3" fill="#00cc44" stroke="#000" stroke-width="1.5"/>
+  <circle cx="96" cy="90" r="3" fill="#555" stroke="#000" stroke-width="1.5"/>
+
+  <!-- Label -->
+  <text x="102" y="138" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">10000mAh</text>
+
+  <!-- Power button -->
+  <circle cx="120" cy="87" r="4" fill="#333" stroke="#000" stroke-width="2"/>
+</svg>

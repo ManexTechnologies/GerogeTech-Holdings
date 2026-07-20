@@ -1737,294 +1737,83 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-rsc] (ecmascript)");
 ;
 ;
-const BUSINESS_NUMBERS = [
-    '263776535909',
-    '263714147218',
-    '263784207861'
-];
-function encodeMessage(text) {
-    return encodeURIComponent(text);
-}
 function ProductCard({ product, index, glass }) {
-    const phone = BUSINESS_NUMBERS[index % BUSINESS_NUMBERS.length];
-    const waHref = `https://wa.me/${phone}?text=${encodeMessage(`Hi GeorgeTech, I'm interested in the ${product.name}. Is it still available?`)}`;
+    const phone = '263776535909';
+    const waHref = `https://wa.me/${phone}?text=${encodeURIComponent(`Hi GeorgeTech, I'm interested in the ${product.name}. Is it still available?`)}`;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("article", {
-        className: `${glass ? 'glass-product-card' : 'card'} p-4`,
+        className: `${glass ? 'glass-product-card' : 'card'} p-5 group`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative w-full aspect-[4/3] mb-3 rounded-md bg-gray-50 overflow-hidden",
+                className: "relative w-full aspect-[4/3] mb-4 rounded-xl bg-gray-50 overflow-hidden",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                         src: product.image || '/placeholder.svg',
                         alt: product.name,
                         width: 400,
                         height: 300,
-                        className: "w-full h-full object-cover"
+                        className: "w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     }, void 0, false, {
                         fileName: "[project]/components/ProductCard.tsx",
-                        lineNumber: 28,
+                        lineNumber: 23,
                         columnNumber: 9
                     }, this),
                     product.badge && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: `absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm ${product.badge === 'New' ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white ring-2 ring-emerald-300/50' : product.badge === 'Imported' ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white ring-2 ring-blue-300/50' : 'bg-gradient-to-r from-gtred to-red-600 text-white ring-2 ring-red-300/50'}`,
-                        children: [
-                            product.badge === 'New' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "inline-flex items-center gap-1",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                        width: "12",
-                                        height: "12",
-                                        viewBox: "0 0 24 24",
-                                        fill: "none",
-                                        stroke: "currentColor",
-                                        strokeWidth: "3",
-                                        strokeLinecap: "round",
-                                        strokeLinejoin: "round",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                                            points: "20 6 9 17 4 12"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/ProductCard.tsx",
-                                            lineNumber: 39,
-                                            columnNumber: 160
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/ProductCard.tsx",
-                                        lineNumber: 39,
-                                        columnNumber: 17
-                                    }, this),
-                                    product.badge
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/ProductCard.tsx",
-                                lineNumber: 38,
-                                columnNumber: 15
-                            }, this),
-                            product.badge === 'Sale' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "inline-flex items-center gap-1",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                        width: "12",
-                                        height: "12",
-                                        viewBox: "0 0 24 24",
-                                        fill: "none",
-                                        stroke: "currentColor",
-                                        strokeWidth: "3",
-                                        strokeLinecap: "round",
-                                        strokeLinejoin: "round",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                d: "M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 45,
-                                                columnNumber: 160
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
-                                                x1: "7",
-                                                y1: "7",
-                                                x2: "7.01",
-                                                y2: "7"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 45,
-                                                columnNumber: 250
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/components/ProductCard.tsx",
-                                        lineNumber: 45,
-                                        columnNumber: 17
-                                    }, this),
-                                    product.badge
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/ProductCard.tsx",
-                                lineNumber: 44,
-                                columnNumber: 15
-                            }, this),
-                            product.badge === 'Imported' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "inline-flex items-center gap-1",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                        width: "12",
-                                        height: "12",
-                                        viewBox: "0 0 24 24",
-                                        fill: "none",
-                                        stroke: "currentColor",
-                                        strokeWidth: "3",
-                                        strokeLinecap: "round",
-                                        strokeLinejoin: "round",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                                                points: "5 9 2 12 5 15"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 51,
-                                                columnNumber: 160
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                                                points: "9 5 12 2 15 5"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 51,
-                                                columnNumber: 194
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                                                points: "15 19 12 22 9 19"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 51,
-                                                columnNumber: 228
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                                                points: "19 9 22 12 19 15"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 51,
-                                                columnNumber: 265
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
-                                                x1: "2",
-                                                y1: "12",
-                                                x2: "22",
-                                                y2: "12"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 51,
-                                                columnNumber: 302
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
-                                                x1: "12",
-                                                y1: "2",
-                                                x2: "12",
-                                                y2: "22"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/ProductCard.tsx",
-                                                lineNumber: 51,
-                                                columnNumber: 340
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/components/ProductCard.tsx",
-                                        lineNumber: 51,
-                                        columnNumber: 17
-                                    }, this),
-                                    product.badge
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/ProductCard.tsx",
-                                lineNumber: 50,
-                                columnNumber: 15
-                            }, this),
-                            !product.badge.match(/^(New|Sale|Imported)$/) && product.badge
-                        ]
-                    }, void 0, true, {
+                        className: `absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm ${product.badge === 'New' ? 'bg-emerald-500 text-white' : product.badge === 'Imported' ? 'bg-blue-600 text-white' : 'bg-gtred text-white'}`,
+                        children: product.badge
+                    }, void 0, false, {
                         fileName: "[project]/components/ProductCard.tsx",
-                        lineNumber: 30,
+                        lineNumber: 31,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/ProductCard.tsx",
-                lineNumber: 27,
+                lineNumber: 22,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                className: "font-semibold text-base leading-tight text-gtblack",
+                className: "font-semibold text-sm sm:text-base leading-snug text-gtblack mb-1.5",
                 children: product.name
             }, void 0, false, {
                 fileName: "[project]/components/ProductCard.tsx",
-                lineNumber: 60,
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             product.specs && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "mt-2 text-sm text-gray-600",
+                className: "text-xs text-muted mb-3 line-clamp-2",
                 children: product.specs
             }, void 0, false, {
                 fileName: "[project]/components/ProductCard.tsx",
-                lineNumber: 61,
-                columnNumber: 25
+                lineNumber: 48,
+                columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-3 flex items-center justify-between",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200/60 text-xs font-medium text-amber-700",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                    width: "14",
-                                    height: "14",
-                                    viewBox: "0 0 24 24",
-                                    fill: "#F59E0B",
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                        d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/ProductCard.tsx",
-                                        lineNumber: 66,
-                                        columnNumber: 111
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/ProductCard.tsx",
-                                    lineNumber: 66,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    children: [
-                                        "4.8 ",
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-amber-400",
-                                            children: "•"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/ProductCard.tsx",
-                                            lineNumber: 67,
-                                            columnNumber: 23
-                                        }, this),
-                                        " 120 reviews"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/ProductCard.tsx",
-                                    lineNumber: 67,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/ProductCard.tsx",
-                            lineNumber: 65,
-                            columnNumber: 11
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/components/ProductCard.tsx",
-                        lineNumber: 64,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-xs muted bg-gray-100 px-2.5 py-1 rounded-full",
-                        children: product.note || 'In stock'
-                    }, void 0, false, {
-                        fileName: "[project]/components/ProductCard.tsx",
-                        lineNumber: 70,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
+                className: "flex items-center justify-between mb-4",
+                children: product.note && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    className: "text-[11px] text-muted bg-black/[0.04] px-2.5 py-1 rounded-full font-medium",
+                    children: product.note
+                }, void 0, false, {
+                    fileName: "[project]/components/ProductCard.tsx",
+                    lineNumber: 54,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
                 fileName: "[project]/components/ProductCard.tsx",
-                lineNumber: 63,
+                lineNumber: 52,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-4 flex gap-3",
+                className: "flex gap-2.5",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: "https://whatsapp.com/channel/0029VafHfIHA2pL49V3S291J",
                         target: "_blank",
                         rel: "noopener noreferrer",
-                        className: `${glass ? 'btn-outline border-white/30 text-gtblack hover:bg-white/20' : 'btn-outline'} flex-1 text-center inline-flex items-center justify-center gap-1.5`,
+                        className: "flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border-2 border-black/[0.08] text-gtblack text-xs font-semibold hover:bg-gtblack hover:text-white hover:border-gtblack transition-all duration-300",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                width: "14",
-                                height: "14",
+                                width: "13",
+                                height: "13",
                                 viewBox: "0 0 24 24",
                                 fill: "none",
                                 stroke: "currentColor",
@@ -2036,7 +1825,7 @@ function ProductCard({ product, index, glass }) {
                                         d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ProductCard.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 66,
                                         columnNumber: 156
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -2045,63 +1834,62 @@ function ProductCard({ product, index, glass }) {
                                         r: "3"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ProductCard.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 66,
                                         columnNumber: 212
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/ProductCard.tsx",
-                                lineNumber: 75,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, this),
                             "View"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ProductCard.tsx",
-                        lineNumber: 74,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: waHref,
                         target: "_blank",
                         rel: "noopener noreferrer",
-                        className: `${glass ? 'bg-gtred text-white px-4 py-2 rounded-lg shadow-md hover:bg-gtreddark transition transform hover:-translate-y-0.5' : 'btn-primary'} flex-1 text-center inline-flex items-center justify-center gap-1.5`,
+                        className: "flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gtred text-white text-xs font-semibold hover:bg-gtreddark hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                width: "14",
-                                height: "14",
+                                width: "13",
+                                height: "13",
                                 viewBox: "0 0 24 24",
                                 fill: "currentColor",
-                                xmlns: "http://www.w3.org/2000/svg",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                     d: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
                                 }, void 0, false, {
                                     fileName: "[project]/components/ProductCard.tsx",
-                                    lineNumber: 79,
-                                    columnNumber: 114
+                                    lineNumber: 75,
+                                    columnNumber: 79
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/ProductCard.tsx",
-                                lineNumber: 79,
+                                lineNumber: 75,
                                 columnNumber: 11
                             }, this),
                             "Inquire"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ProductCard.tsx",
-                        lineNumber: 78,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/ProductCard.tsx",
-                lineNumber: 73,
+                lineNumber: 59,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/ProductCard.tsx",
-        lineNumber: 26,
+        lineNumber: 20,
         columnNumber: 5
     }, this);
 }
@@ -2116,95 +1904,202 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$products$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/data/products.ts [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ProductCard.tsx [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BoxIcons$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/BoxIcons.tsx [app-rsc] (ecmascript)");
+;
 ;
 ;
 ;
 function SmartphonesPage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "py-12 bg-gtgrey min-h-screen",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "container",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "glass-card p-6",
+        className: "min-h-screen",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "relative py-16 md:py-20 overflow-hidden bg-[#08080C]",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col gap-4 mb-6",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-3xl font-bold",
-                                    children: "Smartphones"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/smartphones/page.tsx",
-                                    lineNumber: 12,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm muted mt-2",
-                                    children: "Explore our full smartphone catalog by brand, with model specs and import-ready options."
-                                }, void 0, false, {
-                                    fileName: "[project]/app/smartphones/page.tsx",
-                                    lineNumber: 13,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/smartphones/page.tsx",
-                            lineNumber: 11,
-                            columnNumber: 13
-                        }, this)
+                        className: "absolute inset-0 z-0 pointer-events-none",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute top-[-10%] right-[-5%] w-[50%] h-[50%] rounded-full bg-gtred/6 blur-[120px]"
+                            }, void 0, false, {
+                                fileName: "[project]/app/smartphones/page.tsx",
+                                lineNumber: 12,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-blue-500/5 blur-[100px]"
+                            }, void 0, false, {
+                                fileName: "[project]/app/smartphones/page.tsx",
+                                lineNumber: 13,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/smartphones/page.tsx",
+                        lineNumber: 11,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute inset-0 z-0 opacity-[0.02]",
+                        style: {
+                            backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+                            backgroundSize: '48px 48px'
+                        }
                     }, void 0, false, {
                         fileName: "[project]/app/smartphones/page.tsx",
-                        lineNumber: 10,
-                        columnNumber: 11
+                        lineNumber: 15,
+                        columnNumber: 9
                     }, this),
-                    __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$products$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PHONE_BRANDS"].map((brand)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mb-10 last:mb-0",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "text-2xl font-bold mb-4 text-gtblack border-b border-gray-200 pb-2",
-                                    children: brand.name
-                                }, void 0, false, {
-                                    fileName: "[project]/app/smartphones/page.tsx",
-                                    lineNumber: 19,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
-                                    children: brand.phones.map((phone, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                            product: phone,
-                                            index: i,
-                                            glass: true
-                                        }, phone.id, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "container relative z-10",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "max-w-2xl",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "section-badge bg-accent-blue/20 text-blue-300 border border-blue-500/20 mb-4",
+                                        children: "Smartphones"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/smartphones/page.tsx",
+                                        lineNumber: 19,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                        className: "text-4xl md:text-5xl font-extrabold text-white mb-4",
+                                        children: "Find Your Perfect Phone"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/smartphones/page.tsx",
+                                        lineNumber: 20,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-white/40 text-base md:text-lg max-w-lg",
+                                        children: "Explore our full smartphone catalog by brand — latest models and import-ready options."
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/smartphones/page.tsx",
+                                        lineNumber: 21,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/smartphones/page.tsx",
+                                lineNumber: 18,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mt-8",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "inline-flex items-center gap-2 px-4 py-2 rounded-full text-white/60 text-sm border border-white/[0.08]",
+                                    style: {
+                                        background: 'rgba(255,255,255,0.05)',
+                                        backdropFilter: 'blur(12px)'
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BoxIcons$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["LocationBoxIcon"], {
+                                            theme: "dark",
+                                            size: "sm"
+                                        }, void 0, false, {
                                             fileName: "[project]/app/smartphones/page.tsx",
-                                            lineNumber: 22,
-                                            columnNumber: 19
-                                        }, this))
-                                }, void 0, false, {
+                                            lineNumber: 26,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: "Shop 33, Old Halsteads, Second Street, Mutare"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/smartphones/page.tsx",
+                                            lineNumber: 27,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/app/smartphones/page.tsx",
-                                    lineNumber: 20,
-                                    columnNumber: 15
+                                    lineNumber: 25,
+                                    columnNumber: 13
                                 }, this)
-                            ]
-                        }, brand.name, true, {
-                            fileName: "[project]/app/smartphones/page.tsx",
-                            lineNumber: 18,
-                            columnNumber: 13
-                        }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/app/smartphones/page.tsx",
+                                lineNumber: 24,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/smartphones/page.tsx",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/smartphones/page.tsx",
-                lineNumber: 9,
-                columnNumber: 9
+                lineNumber: 10,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "relative py-16 md:py-20 overflow-hidden",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute inset-0 bg-gradient-to-b from-gt-surface via-white to-gt-surface z-0"
+                    }, void 0, false, {
+                        fileName: "[project]/app/smartphones/page.tsx",
+                        lineNumber: 35,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-px bg-gradient-to-r from-transparent via-black/5 to-transparent z-0"
+                    }, void 0, false, {
+                        fileName: "[project]/app/smartphones/page.tsx",
+                        lineNumber: 36,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "container relative z-10",
+                        children: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$products$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PHONE_BRANDS"].map((brand)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-14 last:mb-0",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        className: "text-2xl font-bold text-gtblack mb-6 pb-3 border-b border-black/[0.06]",
+                                        children: brand.name
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/smartphones/page.tsx",
+                                        lineNumber: 41,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5",
+                                        children: brand.phones.map((phone, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                product: phone,
+                                                index: i,
+                                                glass: true
+                                            }, phone.id, false, {
+                                                fileName: "[project]/app/smartphones/page.tsx",
+                                                lineNumber: 44,
+                                                columnNumber: 19
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/smartphones/page.tsx",
+                                        lineNumber: 42,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, brand.name, true, {
+                                fileName: "[project]/app/smartphones/page.tsx",
+                                lineNumber: 40,
+                                columnNumber: 13
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/app/smartphones/page.tsx",
+                        lineNumber: 38,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/smartphones/page.tsx",
+                lineNumber: 34,
+                columnNumber: 7
             }, this)
-        }, void 0, false, {
-            fileName: "[project]/app/smartphones/page.tsx",
-            lineNumber: 8,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+        ]
+    }, void 0, true, {
         fileName: "[project]/app/smartphones/page.tsx",
-        lineNumber: 7,
+        lineNumber: 8,
         columnNumber: 5
     }, this);
 }

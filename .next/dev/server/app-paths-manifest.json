@@ -1,9 +1,5 @@
 {
-  "/accessories/page": "app/accessories/page.js",
-  "/cellphone-repair/page": "app/cellphone-repair/page.js",
-  "/laptops/page": "app/laptops/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/smartphones/page": "app/smartphones/page.js",
-  "/tablets/page": "app/tablets/page.js",
   "/vehicle-importation/page": "app/vehicle-importation/page.js"
 }

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Drop shadow -->
+  <rect x="42" y="47" width="116" height="82" rx="4" fill="#1a1a2e"/>
+
+  <!-- TV Body / Bezel -->
+  <rect x="38" y="38" width="116" height="82" rx="4" fill="#1a1a1a" stroke="#000" stroke-width="3"/>
+
+  <!-- Screen -->
+  <rect x="44" y="44" width="104" height="64" rx="1" fill="#2d8cf0" stroke="#000" stroke-width="2"/>
+
+  <!-- Sky gradient (flat bands) -->
+  <rect x="44" y="44" width="104" height="28" fill="#5eb8ff" stroke="#000" stroke-width="1"/>
+
+  <!-- Sun -->
+  <circle cx="128" cy="58" r="12" fill="#ffd700" stroke="#000" stroke-width="2"/>
+
+  <!-- Hills -->
+  <ellipse cx="60" cy="80" rx="30" ry="14" fill="#4caf50" stroke="#000" stroke-width="2"/>
+  <ellipse cx="110" cy="82" rx="35" ry="16" fill="#66bb6a" stroke="#000" stroke-width="2"/>
+
+  <!-- Tree trunk -->
+  <rect x="80" y="52" width="4" height="16" fill="#795548" stroke="#000" stroke-width="1.5"/>
+  <!-- Tree top -->
+  <polygon points="82,38 68,56 96,56" fill="#388e3c" stroke="#000" stroke-width="2"/>
+
+  <!-- Simple stand (single pedestal) -->
+  <rect x="84" y="120" width="24" height="14" fill="#333" stroke="#000" stroke-width="3"/>
+  <rect x="70" y="132" width="52" height="8" rx="3" fill="#444" stroke="#000" stroke-width="3"/>
+
+  <!-- Power LED -->
+  <circle cx="56" cy="124" r="2.5" fill="#00ff00"/>
+
+  <!-- Brand / size badge -->
+  <rect x="126" y="120" width="28" height="12" rx="2" fill="#e53935" stroke="#000" stroke-width="2"/>
+  <text x="140" y="129" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#fff" text-anchor="middle">32"</text>
+</svg>

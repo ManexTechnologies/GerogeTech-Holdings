@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Drop shadow -->
+  <rect x="43" y="41" width="114" height="18" rx="8" fill="#222" opacity="0.3"/>
+
+  <!-- Top strap -->
+  <path d="M70 30 130 30 130 48 70 48Z" fill="#1a1a1a" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Strap texture top -->
+  <line x1="78" y1="36" x2="122" y2="36" stroke="#333" stroke-width="2"/>
+  <line x1="78" y1="43" x2="122" y2="43" stroke="#333" stroke-width="2"/>
+
+  <!-- Bottom strap -->
+  <path d="M70 58 130 58 130 170 70 170Z" fill="#1a1a1a" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Strap texture bottom -->
+  <line x1="78" y1="65" x2="122" y2="65" stroke="#333" stroke-width="2"/>
+  <line x1="78" y1="72" x2="122" y2="72" stroke="#333" stroke-width="2"/>
+  <line x1="78" y1="79" x2="122" y2="79" stroke="#333" stroke-width="2"/>
+  <line x1="78" y1="86" x2="122" y2="86" stroke="#333" stroke-width="2"/>
+  <line x1="78" y1="93" x2="122" y2="93" stroke="#333" stroke-width="2"/>
+
+  <!-- Main tracker body -->
+  <rect x="45" y="42" width="110" height="18" rx="8" fill="#2a2a2a" stroke="#000" stroke-width="3"/>
+
+  <!-- Small display screen -->
+  <rect x="55" y="47" width="52" height="8" rx="3" fill="#0a0a1a" stroke="#000" stroke-width="2"/>
+
+  <!-- Screen content: heart icon -->
+  <path d="M67 51 Q67 49 69 49 Q71 49 71 51 L71 53 Q71 55 69 56 L67 57 L65 56 Q63 55 63 53 L63 51 Q63 49 65 49 Q67 49 67 51Z" fill="#ff3355" stroke="none" stroke-width="0"/>
+  <!-- Heart outline -->
+  <path d="M67 50 Q67 48.5 68.5 48.5 Q70 48.5 70 50 L70 52.5 Q70 54 68.5 55 L67 56 L65.5 55 Q64 54 64 52.5 L64 50 Q64 48.5 65.5 48.5 Q67 48.5 67 50Z" fill="#ff3355" stroke="#000" stroke-width="1.2"/>
+
+  <!-- HR number -->
+  <text x="81" y="52.5" font-family="monospace, sans-serif" font-size="6" font-weight="bold" fill="#ff3355">72 bpm</text>
+
+  <!-- LED sensor dots -->
+  <circle cx="80" cy="51" r="1.5" fill="#33ff33" stroke="#000" stroke-width="0.8"/>
+  <circle cx="88" cy="51" r="1.5" fill="#33ff33" stroke="#000" stroke-width="0.8"/>
+  <circle cx="96" cy="51" r="1.5" fill="#33ff33" stroke="#000" stroke-width="0.8"/>
+
+  <!-- Bumper edge highlight -->
+  <rect x="49" y="43" width="102" height="3" rx="1.5" fill="#555" opacity="0.5"/>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Drop shadow -->
+  <rect x="18" y="68" width="174" height="94" rx="6" fill="#111" stroke="#000" stroke-width="3"/>
+
+  <!-- Main body - substantial brick -->
+  <rect x="15" y="65" width="174" height="94" rx="6" fill="#2c2c2c" stroke="#000" stroke-width="3"/>
+
+  <!-- Top edge highlight -->
+  <rect x="15" y="65" width="174" height="10" rx="3" fill="#3c3c3c" stroke="#000" stroke-width="2"/>
+
+  <!-- LCD Screen -->
+  <rect x="30" y="82" width="80" height="36" rx="3" fill="#1a1a1a" stroke="#000" stroke-width="2.5"/>
+  <rect x="33" y="85" width="74" height="30" rx="2" fill="#001a33" stroke="#000" stroke-width="1.5"/>
+
+  <!-- LCD content -->
+  <text x="70" y="101" font-family="monospace" font-size="10" font-weight="bold" fill="#00ddff" text-anchor="middle">OUT 5V/3A</text>
+  <text x="70" y="113" font-family="monospace" font-size="12" font-weight="bold" fill="#00ffaa" text-anchor="middle">72%</text>
+
+  <!-- USB-A Port 1 -->
+  <rect x="155" y="82" width="14" height="16" rx="2" fill="#333" stroke="#000" stroke-width="2"/>
+  <rect x="158" y="86" width="8" height="8" fill="#888" stroke="#000" stroke-width="1"/>
+
+  <!-- USB-A Port 2 -->
+  <rect x="155" y="104" width="14" height="16" rx="2" fill="#333" stroke="#000" stroke-width="2"/>
+  <rect x="158" y="108" width="8" height="8" fill="#888" stroke="#000" stroke-width="1"/>
+
+  <!-- USB-A Port 3 -->
+  <rect x="155" y="126" width="14" height="16" rx="2" fill="#333" stroke="#000" stroke-width="2"/>
+  <rect x="158" y="130" width="8" height="8" fill="#888" stroke="#000" stroke-width="1"/>
+
+  <!-- USB-C PD Port -->
+  <ellipse cx="170" cy="111" rx="5" ry="7" fill="#333" stroke="#000" stroke-width="2"/>
+  <ellipse cx="170" cy="111" rx="2.5" ry="3.5" fill="#aaa" stroke="#000" stroke-width="1"/>
+
+  <!-- Power indicator LED -->
+  <circle cx="28" cy="74" r="3" fill="#00ff44" stroke="#000" stroke-width="1.5"/>
+
+  <!-- Button -->
+  <rect x="60" y="128" width="24" height="8" rx="2" fill="#444" stroke="#000" stroke-width="2"/>
+
+  <!-- Label -->
+  <text x="102" y="172" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ddd" text-anchor="middle">50000mAh</text>
+</svg>

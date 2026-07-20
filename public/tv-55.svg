@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Drop shadow -->
+  <rect x="14" y="41" width="172" height="100" rx="3" fill="#1a1a2e"/>
+
+  <!-- TV Body / minimal bezel -->
+  <rect x="10" y="28" width="172" height="100" rx="2" fill="#0d0d0d" stroke="#000" stroke-width="3"/>
+
+  <!-- Screen -->
+  <rect x="16" y="34" width="160" height="86" rx="1" fill="#1a0e08" stroke="#000" stroke-width="2"/>
+
+  <!-- Letterbox bar (top) -->
+  <rect x="16" y="34" width="160" height="10" fill="#000"/>
+
+  <!-- Letterbox bar (bottom) -->
+  <rect x="16" y="110" width="160" height="10" fill="#000"/>
+
+  <!-- Sunset savannah cinematic scene -->
+  <!-- Sky gradient (flat bands) -->
+  <rect x="16" y="44" width="160" height="18" fill="#ff6b35"/>
+  <rect x="16" y="62" width="160" height="16" fill="#ff8c42"/>
+  <rect x="16" y="78" width="160" height="14" fill="#f4a261"/>
+  <rect x="16" y="92" width="160" height="18" fill="#e9c46a"/>
+
+  <!-- Sun (large cinematic) -->
+  <circle cx="96" cy="72" r="22" fill="#ffd000" stroke="#000" stroke-width="2"/>
+
+  <!-- Acacia tree silhouette - left -->
+  <rect x="42" y="74" width="4" height="20" fill="#1a0e08"/>
+  <ellipse cx="44" cy="70" rx="18" ry="6" fill="#1a0e08" stroke="#000" stroke-width="1"/>
+  <ellipse cx="44" cy="66" rx="12" ry="5" fill="#1a0e08" stroke="#000" stroke-width="1"/>
+
+  <!-- Acacia tree silhouette - right -->
+  <rect x="136" y="78" width="3" height="16" fill="#1a0e08"/>
+  <ellipse cx="138" cy="74" rx="14" ry="5" fill="#1a0e08" stroke="#000" stroke-width="1"/>
+
+  <!-- Animals walking silhouette -->
+  <ellipse cx="72" cy="98" rx="6" ry="4" fill="#1a0e08"/>
+  <rect x="68" y="94" width="8" height="6" fill="#1a0e08"/>
+  <!-- neck -->
+  <rect x="64" y="90" width="3" height="6" fill="#1a0e08"/>
+  <!-- head -->
+  <ellipse cx="62" cy="89" rx="4" ry="3" fill="#1a0e08"/>
+
+  <!-- Second animal -->
+  <ellipse cx="118" cy="100" rx="5" ry="3.5" fill="#1a0e08"/>
+  <rect x="114" y="96" width="7" height="5" fill="#1a0e08"/>
+  <rect x="111" y="92" width="2.5" height="6" fill="#1a0e08"/>
+  <ellipse cx="109" cy="91" rx="3.5" ry="2.5" fill="#1a0e08"/>
+
+  <!-- Birds in sky -->
+  <path d="M50,50 Q54,46 58,50" fill="none" stroke="#1a0e08" stroke-width="1.5"/>
+  <path d="M56,55 Q60,51 64,55" fill="none" stroke="#1a0e08" stroke-width="1.5"/>
+  <path d="M130,48 Q134,44 138,48" fill="none" stroke="#1a0e08" stroke-width="1.5"/>
+
+  <!-- Far mountains -->
+  <polygon points="16,96 40,78 64,96" fill="#2d1810"/>
+  <polygon points="56,96 80,76 104,96" fill="#2d1810"/>
+  <polygon points="96,96 120,80 144,96" fill="#2d1810"/>
+  <polygon points="128,96 152,76 176,96" fill="#2d1810"/>
+
+  <!-- Ground -->
+  <rect x="16" y="96" width="160" height="24" fill="#1a0e08" stroke="#000" stroke-width="2"/>
+
+  <!-- Wide stand -->
+  <rect x="36" y="124" width="120" height="12" rx="2" fill="#333" stroke="#000" stroke-width="3"/>
+  <rect x="28" y="134" width="68" height="8" rx="3" fill="#444" stroke="#000" stroke-width="3"/>
+  <rect x="96" y="134" width="68" height="8" rx="3" fill="#444" stroke="#000" stroke-width="3"/>
+
+  <!-- Power LED -->
+  <circle cx="28" cy="130" r="2.5" fill="#00ff00"/>
+
+  <!-- Brand / size badge -->
+  <rect x="146" y="120" width="28" height="12" rx="2" fill="#e53935" stroke="#000" stroke-width="2"/>
+  <text x="160" y="129" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#fff" text-anchor="middle">55"</text>
+</svg>

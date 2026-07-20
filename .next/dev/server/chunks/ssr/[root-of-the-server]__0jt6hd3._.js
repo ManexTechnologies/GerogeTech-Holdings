@@ -51,7 +51,7 @@ function Footer() {
         className: "bg-gtblack/80 backdrop-blur-lg text-white mt-12 border-t border-white/10",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "container py-12 grid grid-cols-1 md:grid-cols-3 gap-8",
+                className: "container py-8 sm:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -60,16 +60,17 @@ function Footer() {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/logo.jpeg",
                                     alt: "GeorgeTech Holdings logo",
-                                    className: "w-16 h-16 object-contain"
+                                    className: "w-12 h-12 sm:w-16 sm:h-16 object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Footer.tsx",
                                     lineNumber: 11,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "min-w-0",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "font-bold text-lg",
+                                            className: "font-bold text-base sm:text-lg leading-tight",
                                             children: "GeorgeTech Holdings"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Footer.tsx",
@@ -77,7 +78,7 @@ function Footer() {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-sm text-gray-300 mt-1",
+                                            className: "text-xs sm:text-sm text-gray-300 mt-0.5 sm:mt-1 leading-snug",
                                             children: "Elevate Your Lifestyle. Choose Quality. Drive Success."
                                         }, void 0, false, {
                                             fileName: "[project]/components/Footer.tsx",
@@ -85,7 +86,7 @@ function Footer() {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "mt-3 text-sm text-gray-400",
+                                            className: "mt-1 sm:mt-3 text-xs sm:text-sm text-gray-400",
                                             children: "Mutare, Zimbabwe"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Footer.tsx",
@@ -120,7 +121,7 @@ function Footer() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                className: "text-sm text-gray-300 space-y-2",
+                                className: "text-sm text-gray-300 space-y-1.5 sm:space-y-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -251,15 +252,15 @@ function Footer() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex gap-3 mt-6 items-center",
+                                className: "flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-6 items-center",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#",
-                                        className: "w-9 h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
+                                        className: "w-8 h-8 sm:w-9 sm:h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
                                         "aria-label": "Facebook",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                            width: "16",
-                                            height: "16",
+                                            width: "14",
+                                            height: "14",
                                             viewBox: "0 0 24 24",
                                             fill: "currentColor",
                                             xmlns: "http://www.w3.org/2000/svg",
@@ -282,11 +283,11 @@ function Footer() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#",
-                                        className: "w-9 h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
+                                        className: "w-8 h-8 sm:w-9 sm:h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
                                         "aria-label": "Instagram",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                            width: "16",
-                                            height: "16",
+                                            width: "14",
+                                            height: "14",
                                             viewBox: "0 0 24 24",
                                             fill: "currentColor",
                                             xmlns: "http://www.w3.org/2000/svg",
@@ -309,11 +310,11 @@ function Footer() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#",
-                                        className: "w-9 h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
+                                        className: "w-8 h-8 sm:w-9 sm:h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
                                         "aria-label": "X (Twitter)",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                            width: "16",
-                                            height: "16",
+                                            width: "14",
+                                            height: "14",
                                             viewBox: "0 0 24 24",
                                             fill: "currentColor",
                                             xmlns: "http://www.w3.org/2000/svg",
@@ -338,11 +339,11 @@ function Footer() {
                                         href: "https://whatsapp.com/channel/0029VafHfIHA2pL49V3S291J",
                                         target: "_blank",
                                         rel: "noopener noreferrer",
-                                        className: "w-9 h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
+                                        className: "w-8 h-8 sm:w-9 sm:h-9 bg-white/10 hover:bg-gtred rounded-full flex items-center justify-center transition-colors",
                                         "aria-label": "WhatsApp Channel",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                            width: "16",
-                                            height: "16",
+                                            width: "14",
+                                            height: "14",
                                             viewBox: "0 0 24 24",
                                             fill: "currentColor",
                                             xmlns: "http://www.w3.org/2000/svg",
@@ -364,11 +365,11 @@ function Footer() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "ml-4",
+                                        className: "ml-2 sm:ml-4",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                             src: "/logo.jpeg",
                                             alt: "GeorgeTech small logo",
-                                            className: "w-12 h-12 opacity-60 object-contain hover:opacity-100 transition-opacity"
+                                            className: "w-10 h-10 sm:w-12 sm:h-12 opacity-60 object-contain hover:opacity-100 transition-opacity"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Footer.tsx",
                                             lineNumber: 69,
@@ -398,7 +399,7 @@ function Footer() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-black/40 backdrop-blur-md border-t border-white/5 text-center py-3 text-sm text-gray-400",
+                className: "bg-black/40 backdrop-blur-md border-t border-white/5 text-center py-2 sm:py-3 text-xs sm:text-sm text-gray-400",
                 children: "© 2026 GeorgeTech Holdings (Pvt) Ltd. All Rights Reserved."
             }, void 0, false, {
                 fileName: "[project]/components/Footer.tsx",
@@ -467,8 +468,10 @@ function RootLayout({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
         lang: "en",
         className: __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$inter_29d5982e$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].className,
+        suppressHydrationWarning: true,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
             className: "min-h-screen flex flex-col",
+            suppressHydrationWarning: true,
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Header$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/layout.tsx",

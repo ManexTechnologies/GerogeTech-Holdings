@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Chunky drop shadow -->
+  <rect x="68" y="150" width="72" height="12" rx="6" fill="#222" opacity="0.9"/>
+
+  <!-- Mini speaker body - small cube/box shape -->
+  <rect x="65" y="75" width="70" height="75" rx="12" ry="12" fill="#ff3300" stroke="#000" stroke-width="3"/>
+
+  <!-- Subtle reflection edge -->
+  <rect x="68" y="77" width="60" height="5" rx="2.5" fill="#ff6644" stroke="none"/>
+
+  <!-- Front face highlight -->
+  <rect x="75" y="85" width="50" height="50" rx="8" fill="#e62e00" stroke="#000" stroke-width="2.5"/>
+
+  <!-- Speaker grille - concentric rounded rectangles -->
+  <rect x="82" y="92" width="36" height="36" rx="16" fill="#ff3300" stroke="#000" stroke-width="2.5"/>
+  <rect x="87" y="97" width="26" height="26" rx="11" fill="#cc2900" stroke="#000" stroke-width="2"/>
+  <circle cx="100" cy="110" r="6" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+
+  <!-- Grille dots -->
+  <circle cx="100" cy="95" r="2" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+  <circle cx="88" cy="110" r="2" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+  <circle cx="112" cy="110" r="2" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+  <circle cx="100" cy="125" r="2" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+
+  <!-- Top button -->
+  <rect x="92" y="78" width="16" height="5" rx="2.5" fill="#ff6644" stroke="#000" stroke-width="2"/>
+
+  <!-- Corner accent squares -->
+  <rect x="70" y="80" width="6" height="6" rx="1.5" fill="#ff6644" stroke="#000" stroke-width="1.5"/>
+  <rect x="125" y="80" width="6" height="6" rx="1.5" fill="#ff6644" stroke="#000" stroke-width="1.5"/>
+  <rect x="70" y="144" width="6" height="6" rx="1.5" fill="#ff6644" stroke="#000" stroke-width="1.5"/>
+  <rect x="125" y="144" width="6" height="6" rx="1.5" fill="#ff6644" stroke="#000" stroke-width="1.5"/>
+
+  <!-- Power LED indicator -->
+  <circle cx="100" cy="70" r="3" fill="#00ff44" stroke="#000" stroke-width="1.5"/>
+
+  <!-- Carabiner clip at top -->
+  <rect x="92" y="50" width="16" height="28" rx="8" fill="none" stroke="#000" stroke-width="3"/>
+  <line x1="92" y1="58" x2="82" y2="58" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="108" y1="58" x2="118" y2="58" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="82" y1="58" x2="78" y2="52" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="118" y1="58" x2="122" y2="52" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

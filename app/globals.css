@@ -7,6 +7,18 @@
   --gt-white: #FFFFFF;
   --gt-red: #E10600;
   --gt-red-dark: #B00000;
+  --gt-charcoal: #1A1A1A;
+  --gt-offwhite: #FAFAFA;
+  --gt-surface: #F8F7F5;
+  --gt-warmgray: #F0EDE9;
+  --gt-mute: #6B6B6B;
+  --gt-border: rgba(0, 0, 0, 0.06);
+  --gt-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --gt-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --gt-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04);
+  --gt-radius: 1rem;
+  --gt-radius-sm: 0.75rem;
+  --gt-radius-lg: 1.25rem;
 }
 
 @keyframes fadeIn {
@@ -52,11 +64,11 @@
   }
 
   .btn-primary {
-    @apply bg-gtred text-white px-4 py-2 rounded-lg shadow-md hover:bg-gtreddark transition transform hover:-translate-y-0.5;
+    @apply bg-gtred text-white px-5 py-3 rounded-xl font-semibold shadow-md hover:bg-gtreddark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
   }
 
   .btn-outline {
-    @apply border border-gtblack text-gtblack px-4 py-2 rounded-lg bg-white hover:bg-gtblack hover:text-white transition;
+    @apply border-2 border-gtblack/10 text-gtblack px-5 py-3 rounded-xl bg-white font-semibold hover:bg-gtblack hover:text-white hover:border-gtblack transition-all duration-300;
   }
 
   .card {
@@ -69,7 +81,7 @@
     backdrop-filter: blur(16px) saturate(1.2);
     -webkit-backdrop-filter: blur(16px) saturate(1.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 1rem;
+    border-radius: var(--gt-radius);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
   }
 
@@ -78,7 +90,7 @@
     backdrop-filter: blur(16px) saturate(1.2);
     -webkit-backdrop-filter: blur(16px) saturate(1.2);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 1rem;
+    border-radius: var(--gt-radius);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   }
 
@@ -95,15 +107,14 @@
     backdrop-filter: blur(24px) saturate(1.4);
     -webkit-backdrop-filter: blur(24px) saturate(1.4);
     border: 1px solid rgba(255, 255, 255, 0.55);
-    border-radius: 1.25rem;
+    border-radius: var(--gt-radius-lg);
     box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.06),
+      var(--gt-shadow-lg),
       inset 0 1px 0 rgba(255, 255, 255, 0.7),
       inset 0 -1px 0 rgba(255, 255, 255, 0.2);
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* Shine sweep */
   .glass-card::before {
     content: '';
     position: absolute;
@@ -160,14 +171,13 @@
     backdrop-filter: blur(24px) saturate(1.4);
     -webkit-backdrop-filter: blur(24px) saturate(1.4);
     border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 1.25rem;
+    border-radius: var(--gt-radius-lg);
     box-shadow: 
       0 8px 32px 0 rgba(0, 0, 0, 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.10);
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* Dark shine sweep */
   .glass-card-dark::before {
     content: '';
     position: absolute;
@@ -222,14 +232,13 @@
     backdrop-filter: blur(28px) saturate(1.5);
     -webkit-backdrop-filter: blur(28px) saturate(1.5);
     border: 1px solid rgba(255, 255, 255, 0.55);
-    border-radius: 1.25rem;
+    border-radius: var(--gt-radius-lg);
     box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.06),
+      var(--gt-shadow-md),
       inset 0 1px 0 rgba(255, 255, 255, 0.8);
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* Product card shine sweep */
   .glass-product-card::before {
     content: '';
     position: absolute;
@@ -284,7 +293,7 @@
     backdrop-filter: blur(16px) saturate(1.3);
     -webkit-backdrop-filter: blur(16px) saturate(1.3);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 1.25rem;
+    border-radius: var(--gt-radius-lg);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.10);
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -327,7 +336,12 @@
     transform: scale(0.97);
   }
 
-  /* ── Shimmer/glow effect for glass elements ── */
+  /* ── Section badge pill ── */
+  .section-badge {
+    @apply inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase;
+  }
+
+  /* ── Shimmer/glow effect ── */
   .glass-glow {
     position: relative;
     overflow: hidden;
@@ -350,5 +364,5 @@
 }
 
 /* micro styles */
-.badge-pill { @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold; }
-.muted { color: #6B6B6B }
+.badge-pill { @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold; }
+.muted { color: #6B6B6B; }
