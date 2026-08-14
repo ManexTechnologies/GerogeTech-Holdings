@@ -169,8 +169,8 @@ export default function VehicleImportation() {
                 </div>
               </div>
 
-              <div className="glass-card p-6 sm:p-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="glass-card p-4 sm:p-6 md:p-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
                   {visibleVehicles.map((v, i) => (
                     <ProductCard key={v.id} product={{ ...v, badge: 'Imported', note: section.badge }} index={i} glass />
                   ))}
@@ -239,7 +239,7 @@ export default function VehicleImportation() {
             <p className="text-mutetext mt-4 max-w-xl mx-auto">We take the complexity out of importing vehicles to Zimbabwe.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { icon: <><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>, title: 'Global Sourcing', desc: 'We source vehicles from Japan\'s top auctions, UK dealerships, and South African stockists — giving you the widest selection.', color: 'bg-red-50 text-gtred' },
               { icon: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></>, title: 'Full Transparency', desc: 'We provide a full breakdown of costs — vehicle price, shipping, duties, and clearance fees — so there are no surprises.', color: 'bg-blue-50 text-blue-600' },

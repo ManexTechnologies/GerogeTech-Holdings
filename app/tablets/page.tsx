@@ -58,8 +58,8 @@ export default function TabletsPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gtblack">All Tablets</h2>
             <p className="text-muted mt-2 max-w-lg mx-auto">Find the ideal tablet for your needs — from casual browsing to professional creativity.</p>
           </div>
-          <div className="glass-card p-6 sm:p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="glass-card p-4 sm:p-6 md:p-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
               {PRODUCTS.tablets.map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}
@@ -77,7 +77,7 @@ export default function TabletsPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gtblack">What will you use your tablet for?</h2>
             <p className="text-muted mt-2 max-w-lg mx-auto">Not sure which tablet suits your lifestyle? Here's a quick guide.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { title: 'Study & Note-taking', desc: 'iPad Air M2 with Apple Pencil support is perfect for students taking digital notes and annotating PDFs.', icon: <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>, color: 'text-blue-600' },
               { title: 'Entertainment', desc: 'Samsung Galaxy Tab A9+ with its wide display and quad speakers is ideal for movies, shows, and social media.', icon: <polygon points="23 7 16 12 23 17 23 7"/>, color: 'text-purple-600' },

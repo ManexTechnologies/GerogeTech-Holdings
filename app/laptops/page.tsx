@@ -58,8 +58,8 @@ export default function LaptopsPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gtblack">All Laptops</h2>
             <p className="text-muted mt-2 max-w-lg mx-auto">Shop high-performance laptops for business, gaming and everyday use.</p>
           </div>
-          <div className="glass-card p-6 sm:p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="glass-card p-4 sm:p-6 md:p-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
               {PRODUCTS.laptops.map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}
@@ -77,7 +77,7 @@ export default function LaptopsPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gtblack">Which laptop is right for you?</h2>
             <p className="text-muted mt-2 max-w-lg mx-auto">Not sure what to get? Here's a quick guide based on your needs.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { title: 'Business & Productivity', desc: 'ThinkPad X1 Carbon, Dell XPS 13, HP Spectre — built for professionals who need reliability and performance.', icon: <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>, color: 'text-blue-600' },
               { title: 'Gaming', desc: 'ASUS ROG Zephyrus G14 and similar models deliver desktop-grade graphics and high refresh rate displays.', icon: <line x1="6" y1="11" x2="10" y2="11"/>, color: 'text-red-600' },

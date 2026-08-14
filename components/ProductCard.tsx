@@ -62,44 +62,44 @@ export default function ProductCard({ product, index, glass }: { product: Produc
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-4">
-        <div className="mb-2 flex items-center justify-between gap-2">
-          <span className="text-[11px] font-extrabold uppercase tracking-wide text-[#0087c8]">{brand}</span>
-          <span className="flex items-center" aria-label="4 out of 5 stars">
+      <div className="flex flex-1 flex-col p-2 sm:p-4">
+        <div className="mb-2 flex items-center justify-between gap-1 sm:gap-2">
+          <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wide text-[#0087c8]">{brand}</span>
+          <span className="flex items-center text-xs sm:text-sm" aria-label="4 out of 5 stars">
             <Star /><Star /><Star /><Star /><Star muted />
           </span>
         </div>
 
-        <Link href={`/product/${product.id}`} className="mb-2 text-[15px] font-extrabold leading-snug text-[#071225] hover:text-gtred">
+        <Link href={`/product/${product.id}`} className="mb-2 text-[13px] sm:text-[15px] font-extrabold leading-snug text-[#071225] hover:text-gtred">
           {product.name}
         </Link>
 
         {product.specs && (
-          <p className="mb-3 line-clamp-2 min-h-[2.25rem] text-xs leading-relaxed text-[#36527e]">{product.specs}</p>
+          <p className="mb-3 line-clamp-2 min-h-[2.25rem] text-[11px] sm:text-xs leading-relaxed text-[#36527e]">{product.specs}</p>
         )}
 
-        <span className="mb-3 text-xs font-bold text-[#00964b]">✓ In stock</span>
+        <span className="mb-3 text-[10px] sm:text-xs font-bold text-[#00964b]">✓ In stock</span>
 
-        <div className="mt-auto mb-4">
-          <span className="inline-flex rounded-full bg-[#eff6ff] px-3 py-1 text-xs font-bold text-[#2563eb]">Price on request</span>
+        <div className="mt-auto mb-3 sm:mb-4">
+          <span className="inline-flex rounded-full bg-[#eff6ff] px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold text-[#2563eb]">Price on request</span>
         </div>
 
-        <div className="grid grid-cols-[1fr_auto_auto] items-center gap-2">
+        <div className="grid grid-cols-[1fr_auto_auto] items-center gap-1 sm:gap-2">
           <WhatsAppOrderLink
             href={waHref}
-            className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#22c55e] px-4 text-xs font-extrabold text-white transition hover:bg-[#16a34a]"
+            className="inline-flex min-h-8 sm:min-h-10 items-center justify-center rounded-full bg-[#22c55e] px-2 sm:px-4 text-[11px] sm:text-xs font-extrabold text-white transition hover:bg-[#16a34a]"
           >
             Order
           </WhatsAppOrderLink>
           <Link
             href={`/product/${product.id}`}
-            className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#c7d4ee] bg-white px-4 text-xs font-bold text-[#071225] transition hover:border-[#071225]"
+            className="inline-flex min-h-8 sm:min-h-10 items-center justify-center rounded-full border border-[#c7d4ee] bg-white px-2 sm:px-4 text-[11px] sm:text-xs font-bold text-[#071225] transition hover:border-[#071225]"
           >
             Details
           </Link>
           <AddToCartButton
             product={product}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#071225] text-white transition hover:bg-gtred"
+            className="flex h-8 sm:h-10 w-8 sm:w-10 items-center justify-center rounded-full bg-[#071225] text-white transition hover:bg-gtred"
             addedContent={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" /></svg>

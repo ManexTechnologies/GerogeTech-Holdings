@@ -184,7 +184,7 @@ export default function CellphoneRepairPage() {
             <p className="text-mutetext max-w-xl mx-auto text-lg">From cracked screens to dead batteries — we handle it all with professional-grade parts and tools.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {REPAIR_SERVICES.map((service) => (
               <div key={service.title} className="glass-card p-6 group cursor-default">
                 <div className={`w-11 h-11 rounded-xl ${service.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 ${service.iconColor}`}>
@@ -242,7 +242,7 @@ export default function CellphoneRepairPage() {
             <p className="text-mutetext max-w-xl mx-auto text-lg">We don't just fix your device — we restore it to peak condition with care and expertise.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
             {[
               { icon: <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />, title: 'Genuine Parts', desc: 'We use original and high-quality aftermarket parts so your device works like new — not just patched up.', color: 'bg-red-50 text-gtred' },
               { icon: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></>, title: 'Same-Day Service', desc: 'Most common repairs — screens, batteries, charging ports — are completed in under 3 hours while you wait.', color: 'bg-blue-50 text-blue-600' },
@@ -277,7 +277,7 @@ export default function CellphoneRepairPage() {
             <p className="text-white/40 max-w-xl mx-auto text-lg">Four simple steps — from message to a fully working device.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { num: '01', title: 'Message Us', desc: 'Tell us your phone model and issue on WhatsApp. We\'ll give you a free quote.', icon: <ChatBoxIcon theme="dark" size="lg" /> },
               { num: '02', title: 'Bring It In', desc: 'Drop off your device at Shop 33, Old Halsteads, Second Street, Mutare.', icon: <LocationBoxIcon theme="dark" size="lg" /> },

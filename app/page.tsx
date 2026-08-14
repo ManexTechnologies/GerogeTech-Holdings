@@ -94,8 +94,8 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="glass-card p-6 sm:p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="glass-card p-4 sm:p-6 md:p-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
               {phones.slice(0, 3).map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}
@@ -127,8 +127,8 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="glass-card p-6 sm:p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="glass-card p-4 sm:p-6 md:p-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
               {PRODUCTS.tablets.slice(0, 3).map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}
@@ -160,8 +160,8 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="glass-card p-6 sm:p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="glass-card p-4 sm:p-6 md:p-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
               {PRODUCTS.laptops.slice(0, 3).map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}

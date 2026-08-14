@@ -1,6 +1,7 @@
 import './globals.css'
 import React from 'react'
 import Header from '../components/Header'
+import NewsHighlights from '../components/NewsHighlights'
 import Footer from '../components/Footer'
 import { Inter } from 'next/font/google'
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <Header />
+        <NewsHighlights />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

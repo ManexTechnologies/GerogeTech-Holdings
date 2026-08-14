@@ -110,7 +110,7 @@ export default function AccessoriesPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gtblack">Shop by Category</h2>
             <p className="text-muted mt-2 max-w-lg mx-auto">Browse accessories by type to find exactly what you need.</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
             {categories.map((cat) => (
               <div key={cat.label} className="glass-card p-4 text-center group cursor-default">
                 <div className={`w-10 h-10 mx-auto mb-3 bg-white/60 rounded-xl flex items-center justify-center shadow-sm border border-white/40 ${categoryColors[cat.label]}`}>

@@ -52,7 +52,7 @@ export default function SmartphonesPage() {
           {PHONE_BRANDS.map((brand) => (
             <div key={brand.name} className="mb-14 last:mb-0">
               <h2 className="text-2xl font-bold text-gtblack mb-6 pb-3 border-b border-black/[0.06]">{brand.name}</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
                 {brand.phones.map((phone, i) => (
                   <ProductCard key={phone.id} product={phone} index={i} glass />
                 ))}
