@@ -237,3 +237,30 @@ export const PRODUCTS: { [key: string]: Product[] } = {
     { id: 'a42', name: 'Wireless Power Bank', price: 44.0, note: 'Cable-free charging', specs: '10,000mAh · 15W wireless · PD 20W · MagSafe compatible', image: '/powerbank-wireless.svg' },
   ]
 }
+
+export const ALL_PRODUCTS = Object.entries(PRODUCTS).flatMap(([category, products]) =>
+  products.map((product) => ({ ...product, category }))
+)
+
+export function getProductBrand(product: Product) {
+  const phoneBrand = PHONE_BRANDS.find((brand) => brand.phones.some((phone) => phone.id === product.id))
+  if (phoneBrand) {
+    return phoneBrand.name.replace('Apple iPhone', 'Apple').replace('Redmi (Xiaomi)', 'Xiaomi')
+  }
+
+  const firstWord = product.name.split(' ')[0]
+  if (['Apple', 'Samsung', 'Huawei', 'Lenovo', 'Dell', 'HP', 'ASUS', 'MacBook'].includes(firstWord)) {
+    return firstWord === 'MacBook' ? 'Apple' : firstWord
+  }
+
+  return product.id.startsWith('a') ? 'Accessory' : 'GeorgeTech'
+}
+
+export function getProductCategory(product: Product) {
+  const match = ALL_PRODUCTS.find((item) => item.id === product.id)
+  return match?.category ?? 'products'
+}
+
+export function getProductById(id: string) {
+  return ALL_PRODUCTS.find((product) => product.id === id)
+}

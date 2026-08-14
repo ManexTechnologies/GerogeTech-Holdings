@@ -1,5 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { getProductBrand } from '../data/products'
+import { AddToCartButton, WhatsAppOrderLink } from './CartControls'
 
 type Product = {
   id: string
@@ -12,69 +15,96 @@ type Product = {
   image?: string
 }
 
+function Star({ muted = false }: { muted?: boolean }) {
+  const color = muted ? '#cbd5e1' : '#f59e0b'
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill={color} stroke={color} aria-hidden="true">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  )
+}
+
 export default function ProductCard({ product, index, glass }: { product: Product; index: number; glass?: boolean }) {
   const phone = '263776535909'
-  const waHref = `https://wa.me/${phone}?text=${encodeURIComponent(`Hi GeorgeTech, I'm interested in the ${product.name}. Is it still available?`)}`
+  const waHref = `https://wa.me/${phone}?text=${encodeURIComponent(`Hello GeorgeTech, I would like to order the following product: ${product.name}. Please confirm availability and pricing.`)}`
+  const brand = getProductBrand(product)
+  const badgeColor = product.badge === 'New'
+    ? 'bg-[#06a6c8] text-white'
+    : product.badge === 'Imported'
+      ? 'bg-[#071225] text-white'
+      : 'bg-[#ef3340] text-white'
 
   return (
-    <article className={`${glass ? 'glass-product-card' : 'card'} p-5 group`}>
-      {/* Image */}
-      <div className="relative w-full aspect-[4/3] mb-4 rounded-xl bg-gray-50 overflow-hidden">
+    <article className={`${glass ? 'glass-product-card' : 'card'} group flex h-full flex-col overflow-hidden rounded-2xl bg-white p-0 shadow-[0_10px_28px_rgba(15,23,42,0.08)] ring-1 ring-black/[0.04]`} style={{ transitionDelay: `${index * 20}ms` }}>
+      <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+        <Link href={`/product/${product.id}`} className="absolute inset-0 z-10" aria-label={`View ${product.name}`} />
         <Image
           src={product.image || '/placeholder.svg'}
           alt={product.name}
           width={400}
           height={300}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {product.badge && (
-          <span className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm ${
-            product.badge === 'New'
-              ? 'bg-emerald-500 text-white'
-              : product.badge === 'Imported'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gtred text-white'
-          }`}>
-            {product.badge}
+        <div className="absolute left-3 top-3 z-20 flex flex-col items-start gap-2">
+          {product.badge && (
+            <span className={`rounded-full px-3 py-1 text-[10px] font-bold leading-none shadow-md ${badgeColor}`}>
+              {product.badge === 'Imported' ? 'Bestseller' : product.badge}
+            </span>
+          )}
+        </div>
+        <div className="absolute right-3 top-3 z-20 flex flex-col gap-2">
+          <button type="button" className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#2f4a7d] shadow-md ring-1 ring-[#cad6ef]" aria-label={`Save ${product.name}`}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" /></svg>
+          </button>
+          <button type="button" className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#2f4a7d] shadow-md ring-1 ring-[#cad6ef]" aria-label={`Compare ${product.name}`}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 3v18M4 8l-.01 8M4 8h5M20 16l.01-8M20 16h-5M15 21V3" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col p-4">
+        <div className="mb-2 flex items-center justify-between gap-2">
+          <span className="text-[11px] font-extrabold uppercase tracking-wide text-[#0087c8]">{brand}</span>
+          <span className="flex items-center" aria-label="4 out of 5 stars">
+            <Star /><Star /><Star /><Star /><Star muted />
           </span>
+        </div>
+
+        <Link href={`/product/${product.id}`} className="mb-2 text-[15px] font-extrabold leading-snug text-[#071225] hover:text-gtred">
+          {product.name}
+        </Link>
+
+        {product.specs && (
+          <p className="mb-3 line-clamp-2 min-h-[2.25rem] text-xs leading-relaxed text-[#36527e]">{product.specs}</p>
         )}
-      </div>
 
-      {/* Product name */}
-      <h3 className="font-semibold text-sm sm:text-base leading-snug text-gtblack mb-1.5">{product.name}</h3>
+        <span className="mb-3 text-xs font-bold text-[#00964b]">✓ In stock</span>
 
-      {/* Specs */}
-      {product.specs && (
-        <p className="text-xs text-muted mb-3 line-clamp-2">{product.specs}</p>
-      )}
+        <div className="mt-auto mb-4">
+          <span className="inline-flex rounded-full bg-[#eff6ff] px-3 py-1 text-xs font-bold text-[#2563eb]">Price on request</span>
+        </div>
 
-      {/* Note row */}
-      <div className="flex items-center justify-between mb-4">
-        {product.note && (
-          <span className="text-[11px] text-muted bg-black/[0.04] px-2.5 py-1 rounded-full font-medium">{product.note}</span>
-        )}
-      </div>
-
-      {/* Action buttons */}
-      <div className="flex gap-2.5">
-        <a
-          href="https://whatsapp.com/channel/0029VafHfIHA2pL49V3S291J"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border-2 border-black/[0.08] text-gtblack text-xs font-semibold hover:bg-gtblack hover:text-white hover:border-gtblack transition-all duration-300"
-        >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          View
-        </a>
-        <a
-          href={waHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gtred text-white text-xs font-semibold hover:bg-gtreddark hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-        >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Inquire
-        </a>
+        <div className="grid grid-cols-[1fr_auto_auto] items-center gap-2">
+          <WhatsAppOrderLink
+            href={waHref}
+            className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#22c55e] px-4 text-xs font-extrabold text-white transition hover:bg-[#16a34a]"
+          >
+            Order
+          </WhatsAppOrderLink>
+          <Link
+            href={`/product/${product.id}`}
+            className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#c7d4ee] bg-white px-4 text-xs font-bold text-[#071225] transition hover:border-[#071225]"
+          >
+            Details
+          </Link>
+          <AddToCartButton
+            product={product}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#071225] text-white transition hover:bg-gtred"
+            addedContent={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" /></svg>
+          </AddToCartButton>
+        </div>
       </div>
     </article>
   )
