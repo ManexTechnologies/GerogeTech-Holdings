@@ -59,7 +59,7 @@ export default function TabletsPage() {
             <p className="text-muted mt-2 max-w-lg mx-auto">Find the ideal tablet for your needs — from casual browsing to professional creativity.</p>
           </div>
           <div className="glass-card p-6 sm:p-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {PRODUCTS.tablets.map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}

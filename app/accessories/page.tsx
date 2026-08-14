@@ -92,7 +92,7 @@ export default function AccessoriesPage() {
             <p className="text-muted mt-2 max-w-lg mx-auto">From wireless audio to charging hubs — level up your tech experience.</p>
           </div>
           <div className="glass-card p-6 sm:p-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {PRODUCTS.accessories.map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}
