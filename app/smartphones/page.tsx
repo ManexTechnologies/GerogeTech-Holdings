@@ -5,6 +5,7 @@ import { PHONE_BRANDS } from '../../data/products'
 import ProductCard from '../../components/ProductCard'
 import { LocationBoxIcon } from '../../components/BoxIcons'
 import SearchBar from '../../components/SearchBar'
+import CategoryProductGrid from '../../components/CategoryProductGrid'
 
 const ALL_PHONES = PHONE_BRANDS.flatMap(b => b.phones.map(p => ({ id: p.id, name: p.name })))
 
@@ -49,16 +50,7 @@ export default function SmartphonesPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-px bg-gradient-to-r from-transparent via-black/5 to-transparent z-0" />
 
         <div className="container relative z-10">
-          {PHONE_BRANDS.map((brand) => (
-            <div key={brand.name} className="mb-14 last:mb-0">
-              <h2 className="text-2xl font-bold text-gtblack mb-6 pb-3 border-b border-black/[0.06]">{brand.name}</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
-                {brand.phones.map((phone, i) => (
-                  <ProductCard key={phone.id} product={phone} index={i} glass />
-                ))}
-              </div>
-            </div>
-          ))}
+          <CategoryProductGrid category="smartphones" />
         </div>
       </section>
     </div>

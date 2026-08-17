@@ -5,6 +5,7 @@ import { PRODUCTS } from '../../data/products'
 import ProductCard from '../../components/ProductCard'
 import { LocationBoxIcon } from '../../components/BoxIcons'
 import SearchBar from '../../components/SearchBar'
+import CategoryProductGrid from '../../components/CategoryProductGrid'
 
 const ALL_TABLETS = PRODUCTS.tablets.map(t => ({ id: t.id, name: t.name }))
 
@@ -59,11 +60,7 @@ export default function TabletsPage() {
             <p className="text-muted mt-2 max-w-lg mx-auto">Find the ideal tablet for your needs — from casual browsing to professional creativity.</p>
           </div>
           <div className="glass-card p-4 sm:p-6 md:p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
-              {PRODUCTS.tablets.map((p, i) => (
-                <ProductCard key={p.id} product={p} index={i} glass />
-              ))}
-            </div>
+            <CategoryProductGrid category="tablets" />
           </div>
         </div>
       </section>

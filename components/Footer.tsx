@@ -1,5 +1,6 @@
 import React from 'react'
 import { LocationBoxIcon } from './BoxIcons'
+import NewsletterForm from './NewsletterForm'
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="container py-10 sm:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-4">
           {/* Brand */}
           <div>
             <div className="flex items-start gap-4">
@@ -64,6 +65,8 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
+          <NewsletterForm />
 
           {/* Quick Links */}
           <div>

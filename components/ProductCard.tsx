@@ -81,7 +81,8 @@ export default function ProductCard({ product, index, glass }: { product: Produc
         <span className="mb-3 text-[10px] sm:text-xs font-bold text-[#00964b]">✓ In stock</span>
 
         <div className="mt-auto mb-3 sm:mb-4">
-          <span className="inline-flex rounded-full bg-[#eff6ff] px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold text-[#2563eb]">Price on request</span>
+          <span className="text-base font-extrabold text-[#071225]">US${product.price.toFixed(2)}</span>
+          {product.originalPrice && <span className="ml-2 text-xs font-semibold text-[#64748b] line-through">US${product.originalPrice.toFixed(2)}</span>}
         </div>
 
         <div className="grid grid-cols-[1fr_auto_auto] items-center gap-1 sm:gap-2">
