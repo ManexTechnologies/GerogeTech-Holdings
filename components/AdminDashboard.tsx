@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { CATEGORIES, type CatalogProduct, readCatalog, writeCatalog } from './catalog'
+import { readLikedProductIds } from './productEngagement'
 
 type FormState = Omit<CatalogProduct, 'id'> & { id?: string }
 const emptyForm: FormState = { name: '', category: 'smartphones', price: 0, originalPrice: undefined, badge: undefined, note: '', specs: '', image: '' }
@@ -15,10 +16,19 @@ export default function AdminDashboard() {
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [search, setSearch] = React.useState('')
   const [imageError, setImageError] = React.useState('')
+  const [likedIds, setLikedIds] = React.useState<string[]>([])
 
   React.useEffect(() => {
     setAuthenticated(window.sessionStorage.getItem('georgetech-admin-v1') === 'true')
     setProducts(readCatalog())
+    const syncLikes = () => setLikedIds(readLikedProductIds())
+    syncLikes()
+    window.addEventListener('georgetech-product-engagement-change', syncLikes)
+    window.addEventListener('storage', syncLikes)
+    return () => {
+      window.removeEventListener('georgetech-product-engagement-change', syncLikes)
+      window.removeEventListener('storage', syncLikes)
+    }
   }, [])
 
   const persist = (next: CatalogProduct[]) => {
@@ -74,7 +84,9 @@ export default function AdminDashboard() {
     )
   }
 
-  const visibleProducts = products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()))
+  const visibleProducts = products
+    .filter((product) => product.name.toLowerCase().includes(search.toLowerCase()))
+    .sort((left, right) => Number(likedIds.includes(right.id)) - Number(likedIds.includes(left.id)) || left.name.localeCompare(right.name))
   return (
     <main className="min-h-screen bg-[#f8fafc] py-8 md:py-12">
       <div className="container">
@@ -104,7 +116,7 @@ export default function AdminDashboard() {
           </section>
           <section className="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-black/[0.06]">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/[0.06] p-5"><h2 className="text-lg font-extrabold text-[#071225]">Products <span className="text-sm text-[#64748b]">({products.length})</span></h2><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search products" className="h-10 rounded-lg border border-[#c7d4ee] px-3 text-sm" /></div>
-            <div className="overflow-x-auto"><table className="w-full min-w-[600px] text-left text-sm"><thead className="bg-[#f8fafc] text-xs uppercase tracking-wide text-[#64748b]"><tr><th className="px-5 py-3">Product</th><th className="px-5 py-3">Category</th><th className="px-5 py-3">Price</th><th className="px-5 py-3">Actions</th></tr></thead><tbody>{visibleProducts.map((product) => <tr key={product.id} className="border-t border-black/[0.05]"><td className="px-5 py-3 font-bold text-[#071225]">{product.name}</td><td className="px-5 py-3 capitalize text-[#64748b]">{product.category}</td><td className="px-5 py-3 font-bold text-[#071225]">US${product.price.toFixed(2)}</td><td className="px-5 py-3"><button onClick={() => setForm(product)} className="mr-3 font-bold text-[#0087c8]">Edit</button><button onClick={() => { if (window.confirm(`Delete ${product.name}?`)) persist(products.filter((item) => item.id !== product.id)) }} className="font-bold text-[#dc2626]">Delete</button></td></tr>)}</tbody></table></div>
+            <div className="overflow-x-auto"><table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-[#f8fafc] text-xs uppercase tracking-wide text-[#64748b]"><tr><th className="px-5 py-3">Product</th><th className="px-5 py-3">Category</th><th className="px-5 py-3">Price</th><th className="px-5 py-3">Likes</th><th className="px-5 py-3">Actions</th></tr></thead><tbody>{visibleProducts.map((product) => <tr key={product.id} className="border-t border-black/[0.05]"><td className="px-5 py-3 font-bold text-[#071225]">{product.name}</td><td className="px-5 py-3 capitalize text-[#64748b]">{product.category}</td><td className="px-5 py-3 font-bold text-[#071225]">US${product.price.toFixed(2)}</td><td className="px-5 py-3"><span className="inline-flex min-w-8 justify-center rounded-full bg-[#fef2f2] px-2 py-1 text-xs font-extrabold text-[#dc2626]">{likedIds.includes(product.id) ? 1 : 0}</span></td><td className="px-5 py-3"><button onClick={() => setForm(product)} className="mr-3 font-bold text-[#0087c8]">Edit</button><button onClick={() => { if (window.confirm(`Delete ${product.name}?`)) persist(products.filter((item) => item.id !== product.id)) }} className="font-bold text-[#dc2626]">Delete</button></td></tr>)}</tbody></table></div>
           </section>
         </div>
       </div>

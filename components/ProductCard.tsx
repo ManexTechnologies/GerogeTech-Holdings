@@ -1,8 +1,11 @@
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getProductBrand } from '../data/products'
 import { AddToCartButton, WhatsAppOrderLink } from './CartControls'
+import { useProductEngagement } from './productEngagement'
 
 type Product = {
   id: string
@@ -28,6 +31,7 @@ export default function ProductCard({ product, index, glass }: { product: Produc
   const phone = '263776535909'
   const waHref = `https://wa.me/${phone}?text=${encodeURIComponent(`Hello GeorgeTech, I would like to order the following product: ${product.name}. Please confirm availability and pricing.`)}`
   const brand = getProductBrand(product)
+  const { liked, compared, compareLimitReached, toggleLike, toggleCompare } = useProductEngagement(product.id)
   const badgeColor = product.badge === 'New'
     ? 'bg-[#06a6c8] text-white'
     : product.badge === 'Imported'
@@ -53,10 +57,10 @@ export default function ProductCard({ product, index, glass }: { product: Produc
           )}
         </div>
         <div className="absolute right-3 top-3 z-20 flex flex-col gap-2">
-          <button type="button" className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#2f4a7d] shadow-md ring-1 ring-[#cad6ef]" aria-label={`Save ${product.name}`}>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" /></svg>
+          <button type="button" onClick={toggleLike} className={`flex h-9 w-9 items-center justify-center rounded-full ring-1 transition-all duration-200 ${liked ? 'scale-110 bg-gtred text-white ring-red-300 shadow-[0_0_18px_rgba(225,6,0,0.8)]' : 'bg-white text-[#2f4a7d] shadow-md ring-[#cad6ef] hover:text-gtred hover:shadow-[0_0_12px_rgba(225,6,0,0.35)]'}`} aria-label={`${liked ? 'Remove like from' : 'Like'} ${product.name}`} aria-pressed={liked} title={liked ? 'Liked' : 'Like product'}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill={liked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" /></svg>
           </button>
-          <button type="button" className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#2f4a7d] shadow-md ring-1 ring-[#cad6ef]" aria-label={`Compare ${product.name}`}>
+          <button type="button" onClick={toggleCompare} disabled={compareLimitReached} className={`flex h-9 w-9 items-center justify-center rounded-full shadow-md ring-1 transition disabled:cursor-not-allowed disabled:opacity-45 ${compared ? 'bg-[#0087c8] text-white ring-[#0087c8]' : 'bg-white text-[#2f4a7d] ring-[#cad6ef] hover:text-[#0087c8]'}`} aria-label={`${compared ? 'Remove' : 'Add'} ${product.name} ${compared ? 'from' : 'to'} comparison`} aria-pressed={compared} title={compareLimitReached ? 'You can compare up to three products' : compared ? 'Selected for comparison' : 'Add to comparison'}>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 3v18M4 8l-.01 8M4 8h5M20 16l.01-8M20 16h-5M15 21V3" /></svg>
           </button>
         </div>

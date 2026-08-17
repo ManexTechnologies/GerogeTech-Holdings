@@ -3,9 +3,15 @@
 import Link from 'next/link'
 import React from 'react'
 import { CartCount } from './CartControls'
+import { useCatalog } from './catalog'
+import { useLikedProductIds } from './productEngagement'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = React.useState(false)
+  const [likesOpen, setLikesOpen] = React.useState(false)
+  const likedIds = useLikedProductIds()
+  const catalog = useCatalog()
+  const likedProducts = catalog.filter((product) => likedIds.includes(product.id))
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -44,6 +50,16 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setLikesOpen((open) => !open)}
+            className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-black/[0.06] bg-white text-[#071225] shadow-sm transition hover:border-gtred hover:text-gtred"
+            aria-label="View liked products"
+            aria-expanded={likesOpen}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill={likedIds.length ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" /></svg>
+            {likedIds.length > 0 && <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-gtred px-1 text-[10px] font-extrabold leading-none text-white">{likedIds.length > 99 ? '99+' : likedIds.length}</span>}
+          </button>
           <Link
             href="/cart"
             className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-black/[0.06] bg-white text-[#071225] shadow-sm transition hover:border-gtred hover:text-gtred"
@@ -79,6 +95,27 @@ export default function Header() {
           </button>
         </div>
       </div>
+
+      {likesOpen && (
+        <div className="absolute right-3 top-[calc(100%+0.5rem)] z-50 w-[min(24rem,calc(100vw-1.5rem))] overflow-hidden rounded-lg border border-black/[0.08] bg-white shadow-[0_16px_40px_rgba(15,23,42,0.18)]">
+          <div className="flex items-center justify-between border-b border-black/[0.06] px-4 py-3">
+            <h2 className="text-sm font-extrabold text-[#071225]">Liked products</h2>
+            <button type="button" onClick={() => setLikesOpen(false)} className="text-xs font-bold text-[#64748b] hover:text-[#071225]">Close</button>
+          </div>
+          {likedProducts.length > 0 ? (
+            <div className="max-h-[60vh] overflow-y-auto p-2">
+              {likedProducts.map((product) => (
+                <Link key={product.id} href={`/product/${product.id}`} onClick={() => setLikesOpen(false)} className="flex items-center gap-3 rounded-lg p-2 hover:bg-[#f8fafc]">
+                  <img src={product.image || '/placeholder.svg'} alt="" className="h-12 w-12 rounded-md bg-[#f1f5f9] object-cover" />
+                  <span className="min-w-0 flex-1"><span className="block truncate text-sm font-bold text-[#071225]">{product.name}</span><span className="mt-0.5 block text-xs font-semibold text-[#0087c8]">US${product.price.toFixed(2)}</span></span>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="p-5 text-sm leading-6 text-[#64748b]">Products you like will appear here.</p>
+          )}
+        </div>
+      )}
 
       {/* Mobile nav - white glassmorphism card */}
       {menuOpen && (

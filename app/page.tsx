@@ -2,6 +2,7 @@ import React from 'react'
 import { PRODUCTS } from '../data/products'
 import ProductCard from '../components/ProductCard'
 import { LocationBoxIcon } from '../components/BoxIcons'
+import NewsletterForm from '../components/NewsletterForm'
 
 export default function Home() {
   const phones = PRODUCTS.smartphones
@@ -73,6 +74,17 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#071225] py-12 text-white md:py-16">
+        <div className="container grid gap-8 md:grid-cols-[1fr_minmax(20rem,0.9fr)] md:items-center md:gap-12">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#67d7f2]">GeorgeTech insider</p>
+            <h2 className="mt-3 max-w-xl text-3xl font-extrabold leading-tight md:text-4xl">Be first to know when the next deal lands.</h2>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-white/65 md:text-base">Get early notice of fresh phones, laptops, accessories, and limited-time GeorgeTech offers.</p>
+          </div>
+          <NewsletterForm variant="promo" />
         </div>
       </section>
 
