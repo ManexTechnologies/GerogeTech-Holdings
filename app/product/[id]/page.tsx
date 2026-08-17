@@ -3,11 +3,11 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound, useParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import ProductCard from '../../../components/ProductCard'
 import { ProductPurchasePanel } from '../../../components/CartControls'
 import { getProductBrand, getProductCategory } from '../../../data/products'
-import { readCatalog } from '../../../components/catalog'
+import { useCatalog } from '../../../components/catalog'
 
 function Star({ size = 16, muted = false }: { size?: number; muted?: boolean }) {
   const color = muted ? '#cbd5e1' : '#f59e0b'
@@ -29,16 +29,10 @@ export default function ProductDetailPage() {
   const params = useParams()
   const id = typeof params.id === 'string' ? params.id : ''
 
-  const allProducts = React.useMemo(() => (typeof window !== 'undefined' ? readCatalog() : []), [])
+  const allProducts = useCatalog()
   const product = React.useMemo(() => allProducts.find((p) => p.id === id), [id, allProducts])
 
-  if (!product) {
-    // You might want to show a loading state here until the products are loaded on the client
-    if (typeof window !== 'undefined') {
-      notFound()
-    }
-    return null
-  }
+  if (!product) return <main className="container py-20 text-center"><h1 className="text-2xl font-extrabold text-[#071225]">Product unavailable</h1><p className="mt-2 text-sm text-[#64748b]">This product may have been removed or is no longer available.</p><Link href="/smartphones" className="mt-6 inline-flex rounded-lg bg-[#071225] px-4 py-2 text-sm font-bold text-white">Continue shopping</Link></main>
 
   const brand = getProductBrand(product)
   const category = getProductCategory(product)
