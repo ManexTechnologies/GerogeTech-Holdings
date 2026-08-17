@@ -1,13 +1,17 @@
 'use client'
 
 import React from 'react'
-import { PRODUCTS } from '../../data/products'
-import ProductCard from '../../components/ProductCard'
 import { LocationBoxIcon } from '../../components/BoxIcons'
 import SearchBar from '../../components/SearchBar'
 import CategoryProductGrid from '../../components/CategoryProductGrid'
+import { readCatalog } from '../../components/catalog'
+import { type Product } from '../../data/products'
 
-const ALL_ACCESSORIES = PRODUCTS.accessories.map(a => ({ id: a.id, name: a.name }))
+const ALL_ACCESSORIES = (() => {
+  if (typeof window === 'undefined') return []
+  const allProducts = readCatalog()
+  return allProducts.filter(p => p.category === 'accessories').map(a => ({ id: a.id, name: a.name }))
+})()
 
 const categoryIcons: Record<string, React.ReactNode> = {
   Audio: <g><path d="M3 18v-6a9 9 0 0 1 18 0v6" /><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" /><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" /></g>,

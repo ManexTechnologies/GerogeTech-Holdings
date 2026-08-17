@@ -1,10 +1,13 @@
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, useParams } from 'next/navigation'
 import ProductCard from '../../../components/ProductCard'
 import { ProductPurchasePanel } from '../../../components/CartControls'
-import { ALL_PRODUCTS, PRODUCTS, getProductBrand, getProductById, getProductCategory } from '../../../data/products'
+import { getProductBrand, getProductCategory } from '../../../data/products'
+import { readCatalog } from '../../../components/catalog'
 
 function Star({ size = 16, muted = false }: { size?: number; muted?: boolean }) {
   const color = muted ? '#cbd5e1' : '#f59e0b'
@@ -22,22 +25,25 @@ function splitSpecs(specs?: string) {
     .filter(Boolean)
 }
 
-export function generateStaticParams() {
-  return ALL_PRODUCTS.map((product) => ({ id: product.id }))
-}
+export default function ProductDetailPage() {
+  const params = useParams()
+  const id = typeof params.id === 'string' ? params.id : ''
 
-export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const product = getProductById(id)
+  const allProducts = React.useMemo(() => (typeof window !== 'undefined' ? readCatalog() : []), [])
+  const product = React.useMemo(() => allProducts.find((p) => p.id === id), [id, allProducts])
 
   if (!product) {
-    notFound()
+    // You might want to show a loading state here until the products are loaded on the client
+    if (typeof window !== 'undefined') {
+      notFound()
+    }
+    return null
   }
 
   const brand = getProductBrand(product)
   const category = getProductCategory(product)
   const specs = splitSpecs(product.specs)
-  const related = (PRODUCTS[category] || ALL_PRODUCTS).filter((item) => item.id !== product.id).slice(0, 4)
+  const related = allProducts.filter((item) => item.category === category && item.id !== product.id).slice(0, 4)
 
   return (
     <div className="bg-[#f8fafc]">

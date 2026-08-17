@@ -1,15 +1,22 @@
 'use client'
 
 import React from 'react'
-import { PRODUCTS } from '../../data/products'
-import ProductCard from '../../components/ProductCard'
 import { LocationBoxIcon } from '../../components/BoxIcons'
 import SearchBar from '../../components/SearchBar'
 import CategoryProductGrid from '../../components/CategoryProductGrid'
-
-const ALL_TABLETS = PRODUCTS.tablets.map(t => ({ id: t.id, name: t.name }))
+import { readCatalog } from '../../components/catalog'
+import { type Product } from '../../data/products'
 
 export default function TabletsPage() {
+  const [products, setProducts] = React.useState<Product[]>([])
+
+  React.useEffect(() => {
+    const allProducts = readCatalog()
+    setProducts(allProducts.filter(p => p.category === 'tablets'))
+  }, [])
+
+  const ALL_TABLETS = products.map(t => ({ id: t.id, name: t.name }))
+
   return (
     <div>
       {/* Hero */}

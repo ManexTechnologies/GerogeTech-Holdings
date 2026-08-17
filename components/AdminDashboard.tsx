@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { CATEGORIES, type CatalogProduct, readCatalog, writeCatalog } from './catalog'
+import { CATEGORIES, type CatalogProduct, baseCatalog, fetchCatalog, toRow } from './catalog'
 import { readLikedProductIds } from './productEngagement'
 import { createClient } from '../lib/supabase/client'
 
@@ -22,7 +22,7 @@ export default function AdminDashboard() {
 
   React.useEffect(() => {
     setAuthenticated(window.sessionStorage.getItem('georgetech-admin-v1') === 'true')
-    setProducts(readCatalog())
+    fetchCatalog().then(setProducts).catch(() => setProducts(baseCatalog()))
     const syncLikes = () => setLikedIds(readLikedProductIds())
     syncLikes()
     window.addEventListener('georgetech-product-engagement-change', syncLikes)
@@ -44,18 +44,28 @@ export default function AdminDashboard() {
     setAuthenticated(true)
   }
 
-  const persist = (next: CatalogProduct[]) => {
-    setProducts(next)
-    writeCatalog(next)
-  }
-
-  const save = (event: React.FormEvent<HTMLFormElement>) => {
+  const save = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const id = form.id || `${form.category}-${Date.now()}`
     const product: CatalogProduct = { ...form, id, name: form.name.trim(), price: Number(form.price), originalPrice: form.originalPrice ? Number(form.originalPrice) : undefined, note: form.note?.trim(), specs: form.specs?.trim(), image: form.image?.trim() }
-    persist(form.id ? products.map((item) => item.id === form.id ? product : item) : [product, ...products])
+    const { error } = await createClient().from('products').upsert(toRow(product))
+    if (error) return setImageError(error.message)
+    setProducts(await fetchCatalog())
     setForm(emptyForm)
     setImageError('')
+  }
+
+  const removeProduct = async (product: CatalogProduct) => {
+    if (!window.confirm(`Delete ${product.name}?`)) return
+    const { error } = await createClient().from('products').delete().eq('id', product.id)
+    if (error) return setImageError(error.message)
+    setProducts(await fetchCatalog())
+  }
+
+  const importCatalog = async () => {
+    const { error } = await createClient().from('products').upsert(baseCatalog().map(toRow))
+    if (error) return setImageError(error.message)
+    setProducts(await fetchCatalog())
   }
 
   const useLocalImage = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,7 +115,7 @@ export default function AdminDashboard() {
       <div className="container">
         <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
           <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#0087c8]">Catalogue</p><h1 className="mt-1 text-3xl font-extrabold text-[#071225]">Product management</h1></div>
-          <div className="flex gap-2"><Link href="/" className="rounded-lg border border-[#c7d4ee] bg-white px-4 py-2 text-sm font-bold text-[#071225]">View site</Link><button onClick={() => { window.sessionStorage.removeItem('georgetech-admin-v1'); setAuthenticated(false) }} className="rounded-lg border border-[#fecaca] bg-white px-4 py-2 text-sm font-bold text-[#b91c1c]">Sign out</button></div>
+          <div className="flex gap-2"><Link href="/" className="rounded-lg border border-[#c7d4ee] bg-white px-4 py-2 text-sm font-bold text-[#071225]">View site</Link><button onClick={importCatalog} className="rounded-lg border border-[#c7d4ee] bg-white px-4 py-2 text-sm font-bold text-[#071225]">Import catalogue</button><button onClick={async () => { await createClient().auth.signOut(); setAuthenticated(false) }} className="rounded-lg border border-[#fecaca] bg-white px-4 py-2 text-sm font-bold text-[#b91c1c]">Sign out</button></div>
         </div>
         <div className="grid gap-6 xl:grid-cols-[23rem_1fr]">
           <section className="h-fit rounded-lg bg-white p-5 shadow-sm ring-1 ring-black/[0.06]">
@@ -129,7 +139,7 @@ export default function AdminDashboard() {
           </section>
           <section className="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-black/[0.06]">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/[0.06] p-5"><h2 className="text-lg font-extrabold text-[#071225]">Products <span className="text-sm text-[#64748b]">({products.length})</span></h2><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search products" className="h-10 rounded-lg border border-[#c7d4ee] px-3 text-sm" /></div>
-            <div className="overflow-x-auto"><table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-[#f8fafc] text-xs uppercase tracking-wide text-[#64748b]"><tr><th className="px-5 py-3">Product</th><th className="px-5 py-3">Category</th><th className="px-5 py-3">Price</th><th className="px-5 py-3">Likes</th><th className="px-5 py-3">Actions</th></tr></thead><tbody>{visibleProducts.map((product) => <tr key={product.id} className="border-t border-black/[0.05]"><td className="px-5 py-3 font-bold text-[#071225]">{product.name}</td><td className="px-5 py-3 capitalize text-[#64748b]">{product.category}</td><td className="px-5 py-3 font-bold text-[#071225]">US${product.price.toFixed(2)}</td><td className="px-5 py-3"><span className="inline-flex min-w-8 justify-center rounded-full bg-[#fef2f2] px-2 py-1 text-xs font-extrabold text-[#dc2626]">{likedIds.includes(product.id) ? 1 : 0}</span></td><td className="px-5 py-3"><button onClick={() => setForm(product)} className="mr-3 font-bold text-[#0087c8]">Edit</button><button onClick={() => { if (window.confirm(`Delete ${product.name}?`)) persist(products.filter((item) => item.id !== product.id)) }} className="font-bold text-[#dc2626]">Delete</button></td></tr>)}</tbody></table></div>
+            <div className="overflow-x-auto"><table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-[#f8fafc] text-xs uppercase tracking-wide text-[#64748b]"><tr><th className="px-5 py-3">Product</th><th className="px-5 py-3">Category</th><th className="px-5 py-3">Price</th><th className="px-5 py-3">Likes</th><th className="px-5 py-3">Actions</th></tr></thead><tbody>{visibleProducts.map((product) => <tr key={product.id} className="border-t border-black/[0.05]"><td className="px-5 py-3 font-bold text-[#071225]">{product.name}</td><td className="px-5 py-3 capitalize text-[#64748b]">{product.category}</td><td className="px-5 py-3 font-bold text-[#071225]">US${product.price.toFixed(2)}</td><td className="px-5 py-3"><span className="inline-flex min-w-8 justify-center rounded-full bg-[#fef2f2] px-2 py-1 text-xs font-extrabold text-[#dc2626]">{likedIds.includes(product.id) ? 1 : 0}</span></td><td className="px-5 py-3"><button onClick={() => setForm(product)} className="mr-3 font-bold text-[#0087c8]">Edit</button><button onClick={() => removeProduct(product)} className="font-bold text-[#dc2626]">Delete</button></td></tr>)}</tbody></table></div>
           </section>
         </div>
       </div>
