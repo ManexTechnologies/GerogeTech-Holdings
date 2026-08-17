@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { CATEGORIES, type CatalogProduct, readCatalog, writeCatalog } from './catalog'
 import { readLikedProductIds } from './productEngagement'
+import { createClient } from '../lib/supabase/client'
 
 type FormState = Omit<CatalogProduct, 'id'> & { id?: string }
 const emptyForm: FormState = { name: '', category: 'smartphones', price: 0, originalPrice: undefined, badge: undefined, note: '', specs: '', image: '' }
@@ -16,6 +17,7 @@ export default function AdminDashboard() {
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [search, setSearch] = React.useState('')
   const [imageError, setImageError] = React.useState('')
+  const [authError, setAuthError] = React.useState('')
   const [likedIds, setLikedIds] = React.useState<string[]>([])
 
   React.useEffect(() => {
@@ -30,6 +32,17 @@ export default function AdminDashboard() {
       window.removeEventListener('storage', syncLikes)
     }
   }, [])
+
+  const signIn = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setAuthError('')
+    const supabase = createClient()
+    const { data, error } = await supabase.auth.signInWithPassword({ email: username, password })
+    if (error || !data.user) return setAuthError(error?.message || 'Unable to sign in.')
+    const { data: admin } = await supabase.from('admin_users').select('user_id').eq('user_id', data.user.id).maybeSingle()
+    if (!admin) { await supabase.auth.signOut(); return setAuthError('This account is not an administrator.') }
+    setAuthenticated(true)
+  }
 
   const persist = (next: CatalogProduct[]) => {
     setProducts(next)
@@ -69,16 +82,16 @@ export default function AdminDashboard() {
   if (!authenticated) {
     return (
       <main className="grid min-h-[calc(100vh-5rem)] place-items-center bg-[#f8fafc] p-4">
-        <form onSubmit={(event) => { event.preventDefault(); if (username === 'admin' && password === 'changeme123') { window.sessionStorage.setItem('georgetech-admin-v1', 'true'); setAuthenticated(true) } }} className="w-full max-w-sm rounded-lg bg-white p-7 shadow-sm ring-1 ring-black/[0.06]">
+        <form onSubmit={signIn} className="w-full max-w-sm rounded-lg bg-white p-7 shadow-sm ring-1 ring-black/[0.06]">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#0087c8]">GeorgeTech Holdings</p>
           <h1 className="mt-2 text-2xl font-extrabold text-[#071225]">Admin sign in</h1>
           <p className="mt-2 text-sm text-[#64748b]">Use the administrator password to manage the product catalogue.</p>
-          <label className="mt-6 block text-sm font-bold text-[#071225]" htmlFor="admin-username">Username</label>
+          <label className="mt-6 block text-sm font-bold text-[#071225]" htmlFor="admin-username">Email address</label>
           <input id="admin-username" value={username} onChange={(event) => setUsername(event.target.value)} className="mt-2 h-11 w-full rounded-lg border border-[#c7d4ee] px-3 outline-none focus:border-[#0087c8]" autoComplete="username" required />
           <label className="mt-4 block text-sm font-bold text-[#071225]" htmlFor="admin-password">Password</label>
           <input id="admin-password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} className="mt-2 h-11 w-full rounded-lg border border-[#c7d4ee] px-3 outline-none focus:border-[#0087c8]" required />
           <button className="mt-4 h-11 w-full rounded-lg bg-[#071225] text-sm font-bold text-white hover:bg-gtred">Sign in</button>
-          {(username || password) && (username !== 'admin' || password !== 'changeme123') && <p className="mt-3 text-xs text-[#dc2626]">Incorrect username or password.</p>}
+          {authError && <p className="mt-3 text-xs text-[#dc2626]">{authError}</p>}
         </form>
       </main>
     )
