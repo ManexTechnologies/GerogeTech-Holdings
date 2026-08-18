@@ -20,6 +20,19 @@ export async function fetchCatalog() {
 }
 
 export function useCatalog(category?: string) {
-  const products = baseCatalog()
+  const [products, setProducts] = React.useState<CatalogProduct[]>(baseCatalog)
+
+  React.useEffect(() => {
+    let active = true
+    fetchCatalog()
+      .then((catalog) => {
+        if (active) setProducts(catalog)
+      })
+      .catch(() => {
+        // Keep the bundled catalogue visible if the database is temporarily unavailable.
+      })
+    return () => { active = false }
+  }, [])
+
   return category ? products.filter((product) => product.category === category) : products
 }

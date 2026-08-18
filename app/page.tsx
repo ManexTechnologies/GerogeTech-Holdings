@@ -1,11 +1,16 @@
+'use client'
+
 import React from 'react'
-import { PRODUCTS } from '../data/products'
 import ProductCard from '../components/ProductCard'
 import { LocationBoxIcon } from '../components/BoxIcons'
 import NewsletterForm from '../components/NewsletterForm'
+import { useCatalog } from '../components/catalog'
 
 export default function Home() {
-  const phones = PRODUCTS.smartphones
+  const catalog = useCatalog()
+  const phones = catalog.filter((product) => product.category === 'smartphones')
+  const tablets = catalog.filter((product) => product.category === 'tablets')
+  const laptops = catalog.filter((product) => product.category === 'laptops')
 
   return (
     <div className="overflow-hidden">
@@ -141,7 +146,7 @@ export default function Home() {
 
           <div className="glass-card p-4 sm:p-6 md:p-8">
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
-              {PRODUCTS.tablets.slice(0, 3).map((p, i) => (
+              {tablets.slice(0, 3).map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}
             </div>
@@ -174,7 +179,7 @@ export default function Home() {
 
           <div className="glass-card p-4 sm:p-6 md:p-8">
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
-              {PRODUCTS.laptops.slice(0, 3).map((p, i) => (
+              {laptops.slice(0, 3).map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} glass />
               ))}
             </div>
