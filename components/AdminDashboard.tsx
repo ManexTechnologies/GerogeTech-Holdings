@@ -6,8 +6,8 @@ import { CATEGORIES, type CatalogProduct, baseCatalog, fetchCatalog, toRow } fro
 import { readLikedProductIds } from './productEngagement'
 import { createClient } from '../lib/supabase/client'
 
-type FormState = Omit<CatalogProduct, 'id'> & { id?: string }
-const emptyForm: FormState = { name: '', category: 'smartphones', price: 0, originalPrice: undefined, badge: undefined, note: '', specs: '', image: '' }
+type FormState = Omit<CatalogProduct, 'id'> & { id?: string; notifySubscribers: boolean }
+const emptyForm: FormState = { name: '', category: 'smartphones', price: 0, originalPrice: undefined, badge: undefined, note: '', specs: '', image: '', notifySubscribers: true }
 
 export default function AdminDashboard() {
   const [authenticated, setAuthenticated] = React.useState(false)
@@ -19,6 +19,7 @@ export default function AdminDashboard() {
   const [imageError, setImageError] = React.useState('')
   const [authError, setAuthError] = React.useState('')
   const [likedIds, setLikedIds] = React.useState<string[]>([])
+  const [saveMessage, setSaveMessage] = React.useState('')
 
   React.useEffect(() => {
     setAuthenticated(window.sessionStorage.getItem('georgetech-admin-v1') === 'true')
@@ -46,13 +47,33 @@ export default function AdminDashboard() {
 
   const save = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const isNewProduct = !form.id
     const id = form.id || `${form.category}-${Date.now()}`
-    const product: CatalogProduct = { ...form, id, name: form.name.trim(), price: Number(form.price), originalPrice: form.originalPrice ? Number(form.originalPrice) : undefined, note: form.note?.trim(), specs: form.specs?.trim(), image: form.image?.trim() }
+    const { notifySubscribers, ...productFields } = form
+    const product: CatalogProduct = { ...productFields, id, name: form.name.trim(), price: Number(form.price), originalPrice: form.originalPrice ? Number(form.originalPrice) : undefined, note: form.note?.trim(), specs: form.specs?.trim(), image: form.image?.trim() }
     const { error } = await createClient().from('products').upsert(toRow(product))
     if (error) return setImageError(error.message)
     setProducts(await fetchCatalog())
     setForm(emptyForm)
     setImageError('')
+    setSaveMessage('')
+
+    if (isNewProduct && notifySubscribers) {
+      try {
+        const response = await fetch('/api/newsletter/product-announcement', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId: product.id }),
+        })
+        const result = await response.json() as { message?: string; sent?: number }
+        if (!response.ok) throw new Error(result.message || 'The announcement could not be sent.')
+        setSaveMessage(result.sent ? `Product added and announcement sent to ${result.sent} subscriber${result.sent === 1 ? '' : 's'}.` : 'Product added. There are no newsletter subscribers yet.')
+      } catch (announcementError) {
+        setSaveMessage(`Product added, but the newsletter was not sent: ${announcementError instanceof Error ? announcementError.message : 'Please try again.'}`)
+      }
+    } else {
+      setSaveMessage(isNewProduct ? 'Product added.' : 'Product changes saved.')
+    }
   }
 
   const removeProduct = async (product: CatalogProduct) => {
@@ -134,12 +155,14 @@ export default function AdminDashboard() {
               {form.image && <img src={form.image} alt="Selected product preview" className="h-36 w-full rounded-lg border border-[#c7d4ee] object-cover" />}
               <label className="text-sm font-bold text-[#071225]">Short description<textarea value={form.note || ''} onChange={(e) => setForm({ ...form, note: e.target.value })} rows={2} className="mt-1 w-full rounded-lg border border-[#c7d4ee] p-3 font-normal" /></label>
               <label className="text-sm font-bold text-[#071225]">Specifications<textarea value={form.specs || ''} onChange={(e) => setForm({ ...form, specs: e.target.value })} rows={2} placeholder="8GB RAM | 128GB | 50MP" className="mt-1 w-full rounded-lg border border-[#c7d4ee] p-3 font-normal" /></label>
+              {!form.id && <label className="flex items-start gap-2 rounded-lg bg-[#eff6ff] p-3 text-sm text-[#071225]"><input type="checkbox" checked={form.notifySubscribers} onChange={(event) => setForm({ ...form, notifySubscribers: event.target.checked })} className="mt-0.5" /><span><strong>Announce to newsletter subscribers</strong><br /><span className="text-xs text-[#64748b]">Sends a new-product email after this product is added.</span></span></label>}
               <div className="flex gap-2"><button className="h-11 flex-1 rounded-lg bg-[#071225] text-sm font-bold text-white hover:bg-gtred">{form.id ? 'Save changes' : 'Add product'}</button>{form.id && <button type="button" onClick={() => setForm(emptyForm)} className="rounded-lg border border-[#c7d4ee] px-4 text-sm font-bold text-[#071225]">Cancel</button>}</div>
+              {saveMessage && <p className="text-xs font-semibold text-[#0369a1]" role="status">{saveMessage}</p>}
             </form>
           </section>
           <section className="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-black/[0.06]">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/[0.06] p-5"><h2 className="text-lg font-extrabold text-[#071225]">Products <span className="text-sm text-[#64748b]">({products.length})</span></h2><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search products" className="h-10 rounded-lg border border-[#c7d4ee] px-3 text-sm" /></div>
-            <div className="overflow-x-auto"><table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-[#f8fafc] text-xs uppercase tracking-wide text-[#64748b]"><tr><th className="px-5 py-3">Product</th><th className="px-5 py-3">Category</th><th className="px-5 py-3">Price</th><th className="px-5 py-3">Likes</th><th className="px-5 py-3">Actions</th></tr></thead><tbody>{visibleProducts.map((product) => <tr key={product.id} className="border-t border-black/[0.05]"><td className="px-5 py-3 font-bold text-[#071225]">{product.name}</td><td className="px-5 py-3 capitalize text-[#64748b]">{product.category}</td><td className="px-5 py-3 font-bold text-[#071225]">US${product.price.toFixed(2)}</td><td className="px-5 py-3"><span className="inline-flex min-w-8 justify-center rounded-full bg-[#fef2f2] px-2 py-1 text-xs font-extrabold text-[#dc2626]">{likedIds.includes(product.id) ? 1 : 0}</span></td><td className="px-5 py-3"><button onClick={() => setForm(product)} className="mr-3 font-bold text-[#0087c8]">Edit</button><button onClick={() => removeProduct(product)} className="font-bold text-[#dc2626]">Delete</button></td></tr>)}</tbody></table></div>
+            <div className="overflow-x-auto"><table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-[#f8fafc] text-xs uppercase tracking-wide text-[#64748b]"><tr><th className="px-5 py-3">Product</th><th className="px-5 py-3">Category</th><th className="px-5 py-3">Price</th><th className="px-5 py-3">Likes</th><th className="px-5 py-3">Actions</th></tr></thead><tbody>{visibleProducts.map((product) => <tr key={product.id} className="border-t border-black/[0.05]"><td className="px-5 py-3 font-bold text-[#071225]">{product.name}</td><td className="px-5 py-3 capitalize text-[#64748b]">{product.category}</td><td className="px-5 py-3 font-bold text-[#071225]">US${product.price.toFixed(2)}</td><td className="px-5 py-3"><span className="inline-flex min-w-8 justify-center rounded-full bg-[#fef2f2] px-2 py-1 text-xs font-extrabold text-[#dc2626]">{likedIds.includes(product.id) ? 1 : 0}</span></td><td className="px-5 py-3"><button onClick={() => setForm({ ...product, notifySubscribers: false })} className="mr-3 font-bold text-[#0087c8]">Edit</button><button onClick={() => removeProduct(product)} className="font-bold text-[#dc2626]">Delete</button></td></tr>)}</tbody></table></div>
           </section>
         </div>
       </div>
