@@ -20,19 +20,6 @@ export async function fetchCatalog() {
 }
 
 export function useCatalog(category?: string) {
-  const [products, setProducts] = React.useState<CatalogProduct[]>(baseCatalog)
-  React.useEffect(() => {
-    let active = true
-    const load = async () => {
-      try {
-        const databaseProducts = await fetchCatalog()
-        if (active && databaseProducts.length > 0) setProducts(databaseProducts)
-      } catch {}
-    }
-    load()
-    const client = createClient()
-    const channel = client.channel('products-live').on('postgres_changes', { event: '*', schema: 'public', table: 'products' }, load).subscribe()
-    return () => { active = false; client.removeChannel(channel) }
-  }, [])
+  const products = baseCatalog()
   return category ? products.filter((product) => product.category === category) : products
 }
